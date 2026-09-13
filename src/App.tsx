@@ -64,7 +64,7 @@ function Logo({ light = false }: { light?: boolean }) {
           translate="no"
           className={`notranslate text-[11px] font-light tracking-[0.06em] ${light ? 'text-white/55' : 'text-[#a3a3a3]'}`}
         >
-          - Community
+          - Rede de apoio e Resgate
         </span>
       </span>
     </a>

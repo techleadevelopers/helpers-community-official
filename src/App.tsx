@@ -241,7 +241,7 @@ function Home() {
     <img src="https://res.cloudinary.com/limpeja/image/upload/v1789338510/ChatGPT_Image_13_de_set._de_2026_19_28_12_ssall4.png" alt="Avatar" className="h-full w-full object-cover" />
   </span>
 </div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
-          <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="absolute left-2 top-14 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-left-12"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#edf2ee] text-[#466f56]"><CircleCheck size={15} /></span></div></div><div className="absolute bottom-12 right-0 z-10 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-right-8"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#fff1f0] text-[#c96868]"><UsersRound size={15} /></span><div><p className="font-mono-custom text-[8px] font-bold text-[#c96868]">4 PESSOAS JÁ AJUDARAM</p><p className="mt-0.5 text-[10px] font-semibold text-[#27302b]">Uma rede em movimento</p></div></div></div><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
+          <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
         </div>
       </section>
 

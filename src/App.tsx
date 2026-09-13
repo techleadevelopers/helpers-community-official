@@ -83,54 +83,63 @@ function PhoneMockup({
   imageUrls?: string[];
   interval?: number;
 }) {
-  // Se passar imageUrls, usa o slider. Se passar imageUrl, usa estático.
   const list = imageUrls && imageUrls.length > 0 ? imageUrls : (imageUrl ? [imageUrl] : [SCREEN_MAIN]);
   const hasSlider = list.length > 1;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (!hasSlider) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % list.length);
+      setIsAnimating(true);
+      setTimeout(() => setCurrentIndex((prev) => (prev + 1) % list.length), 350);
+      setTimeout(() => setIsAnimating(false), 700);
     }, interval);
     return () => clearInterval(timer);
   }, [hasSlider, list.length, interval]);
 
+  const baseScale = compact ? 0.86 : 1;
+  const animScale = compact ? 0.89 : 1.03;
+  const currentScale = isAnimating ? animScale : baseScale;
+
   return (
-    <div className={`phone-shadow relative mx-auto w-[240px] overflow-hidden rounded-[2.25rem] border-[7px] border-[#29322d] bg-[#f8faf7] ${compact ? 'scale-[.86]' : ''}`}>
-      <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-[#29322d]" />
-      <div className="flex h-8 items-center justify-between bg-[#f8faf7] px-5 pt-2 text-[8px] font-bold text-[#27302b]">
-        <span>9:41</span>
-        <span className="flex gap-1">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#466f56]" />
-          <span className="h-1.5 w-3 rounded-full bg-[#466f56]" />
-        </span>
+    <div 
+      className="transition-transform duration-700 ease-in-out"
+      style={{ transform: `scale(${currentScale})` }}
+    >
+      <div className="phone-shadow relative mx-auto w-[240px] overflow-hidden rounded-[2.25rem] border-[7px] border-[#29322d] bg-[#f8faf7]">
+        <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-[#29322d]" />
+        <div className="flex h-8 items-center justify-between bg-[#f8faf7] px-5 pt-2 text-[8px] font-bold text-[#27302b]">
+          <span>9:41</span>
+          <span className="flex gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#466f56]" />
+            <span className="h-1.5 w-3 rounded-full bg-[#466f56]" />
+          </span>
+        </div>
+        <div className="relative h-[432px] overflow-hidden bg-[#f8faf7]">
+          {list.map((img, i) => (
+            <img
+              key={img}
+              src={img}
+              alt={`Tela ${i + 1} do aplicativo Helpers`}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+                i === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            />
+          ))}
+          {hasSlider && (
+            <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
+              {list.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'w-4 bg-white shadow-sm' : 'w-1.5 bg-white/50'}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="h-5 bg-[#f8faf7]" />
       </div>
-      <div className="relative h-[432px] overflow-hidden bg-black">
-        {list.map((img, i) => (
-          <img
-            key={img}
-            src={img}
-            alt={`Tela ${i + 1} do aplicativo Helpers`}
-            className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${
-              i === currentIndex 
-                ? 'opacity-100 scale-100 z-10' 
-                : 'opacity-0 scale-95 z-0'
-            }`}
-          />
-        ))}
-        {hasSlider && (
-          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
-            {list.map((_, i) => (
-              <span
-                key={i}
-                className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'w-4 bg-white shadow-sm' : 'w-1.5 bg-white/50'}`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      <div className="h-5 bg-[#f8faf7]" />
     </div>
   );
 }
@@ -160,7 +169,6 @@ function Home() {
   const [reportOpen, setReportOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   
-  // Refs para o efeito de Scroll Reveal
   const heroLeft = useScrollReveal();
   const heroRight = useScrollReveal();
   const conceptLeft = useScrollReveal();

@@ -139,11 +139,11 @@
   * { @apply border-border; }
   html { 
     scroll-behavior: smooth; 
-    overflow-x: hidden; /* Mantido apenas na raiz para evitar rolagem horizontal */
+    overflow-x: hidden;
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    overflow-x: hidden; /* Mantido apenas no body */
+    overflow-x: hidden;
   }
   ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 }
@@ -155,7 +155,6 @@
   .site-shell { 
     width: min(1160px, calc(100% - 40px)); 
     margin-inline: auto; 
-    /* REMOVIDO O overflow-x: hidden DAQUI */
   }
   .eyebrow { font-family: var(--app-font-mono); font-size: 0.69rem; letter-spacing: .15em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .reveal { animation: rise-in .7s cubic-bezier(.2,.8,.2,1) both; }
@@ -210,7 +209,7 @@
 
   /* --- CORREÇÃO DO GAP E DO EMPURRÃO NA LATERAL NO MOBILE --- */
   #inicio .site-shell.grid {
-    grid-template-columns: 1fr !important; /* Força 1 coluna, o gap-16 vira vertical */
+    grid-template-columns: 1fr !important;
   }
 
   /* --- AJUSTE DO TÍTULO NO MOBILE --- */
@@ -223,27 +222,26 @@
   /* --- AJUSTE DOS CARDS "COMO FUNCIONA" NO MOBILE (SEM SCROLL, MICRO CARDS) --- */
   #como-funciona .grid {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 2x2 grid */
-    gap: 0.5rem !important; /* Gap bem pequeno */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
     overflow: visible !important;
   }
 
   #como-funciona .grid > div {
-    padding: 0.75rem !important; /* Padding micro */
-    border-radius: 1rem !important; /* Borda menor */
+    padding: 0.75rem !important;
+    border-radius: 1rem !important;
   }
 
   #como-funciona .grid > div h3 {
     margin-top: 0.75rem !important;
-    font-size: 1.1rem !important; /* Fonte menor */
+    font-size: 1.1rem !important;
   }
 
   #como-funciona .grid > div p {
-    font-size: 0.65rem !important; /* Fonte bem pequena */
+    font-size: 0.65rem !important;
     line-height: 1.2 !important;
   }
 
-  /* Ajuste dos ícones e números dentro dos cards */
   #como-funciona .grid > div span.grid {
     width: 2rem !important;
     height: 2rem !important;
@@ -276,17 +274,16 @@
   /* --- AJUSTE DOS CARDS DA COMUNIDADE (PROTETORES, ONGS, ETC) NO MOBILE --- */
   #comunidade .mt-14.grid {
     display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* 4 colunas horizontais */
-    gap: 0.35rem !important; /* Espaço mínimo entre eles */
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.35rem !important;
     overflow: visible !important;
   }
 
   #comunidade .mt-14.grid > article {
-    padding: 0.5rem !important; /* Padding micro */
-    border-radius: 0.75rem !important; /* Borda menor */
+    padding: 0.5rem !important;
+    border-radius: 0.75rem !important;
   }
 
-  /* Ícone dentro do card */
   #comunidade .mt-14.grid > article > span.grid {
     width: 1.5rem !important;
     height: 1.5rem !important;
@@ -298,21 +295,18 @@
     height: 0.75rem !important;
   }
 
-  /* Título do card */
   #comunidade .mt-14.grid > article h3 {
     margin-top: 0.5rem !important;
     font-size: 0.7rem !important;
     line-height: 1.1 !important;
   }
 
-  /* Descrição do card */
   #comunidade .mt-14.grid > article p {
     margin-top: 0.25rem !important;
     font-size: 0.5rem !important;
     line-height: 1.1 !important;
   }
 
-  /* Link "Saiba mais" */
   #comunidade .mt-14.grid > article a {
     margin-top: 0.4rem !important;
     font-size: 0.5rem !important;

@@ -74,11 +74,28 @@ function SectionLabel({ children, coral = false }: { children: React.ReactNode; 
 
 function PhoneMockup({
   compact = false,
-  imageUrl = SCREEN_MAIN,
+  imageUrl,
+  imageUrls,
+  interval = 3500,
 }: {
   compact?: boolean;
   imageUrl?: string;
+  imageUrls?: string[];
+  interval?: number;
 }) {
+  // Se passar imageUrls, usa o slider. Se passar imageUrl, usa estático.
+  const list = imageUrls && imageUrls.length > 0 ? imageUrls : (imageUrl ? [imageUrl] : [SCREEN_MAIN]);
+  const hasSlider = list.length > 1;
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!hasSlider) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % list.length);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [hasSlider, list.length, interval]);
+
   return (
     <div className={`phone-shadow relative mx-auto w-[240px] overflow-hidden rounded-[2.25rem] border-[7px] border-[#29322d] bg-[#f8faf7] ${compact ? 'scale-[.86]' : ''}`}>
       <div className="absolute left-1/2 top-0 z-20 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-[#29322d]" />
@@ -90,11 +107,24 @@ function PhoneMockup({
         </span>
       </div>
       <div className="relative h-[432px] overflow-hidden bg-black">
-        <img
-          src={imageUrl}
-          alt="Tela oficial do aplicativo Helpers"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {list.map((img, i) => (
+          <img
+            key={img}
+            src={img}
+            alt={`Tela ${i + 1} do aplicativo Helpers`}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${i === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
+        {hasSlider && (
+          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+            {list.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'w-4 bg-white shadow-sm' : 'w-1.5 bg-white/50'}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
       <div className="h-5 bg-[#f8faf7]" />
     </div>
@@ -161,7 +191,7 @@ function Home() {
         <div className="absolute -right-32 top-12 -z-0 size-[420px] rounded-full bg-[#eaf0ec] blur-3xl" /><div className="absolute -left-48 top-72 -z-0 size-[400px] rounded-full bg-[#fff1f0] opacity-60 blur-3xl" />
         <div className="site-shell grid min-h-[680px] items-center gap-16 py-20 lg:grid-cols-[1fr_470px] lg:gap-10 lg:py-24">
           <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>Salvando vidas todos os dias</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">Quando alguém precisa de ajuda, <span className="text-[#466f56]">a comunidade responde.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos sociais para transformar pequenos gestos em impacto real.</p><div className="mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Baixar o Aplicativo</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3"><div className="flex -space-x-2"><span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#d4e2d8] text-[10px] font-bold text-[#466f56]">AM</span><span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#f2d0cb] text-[10px] font-bold text-[#a65e5e]">JV</span><span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#e9d9c7] text-[10px] font-bold text-[#9b6f45]">LS</span></div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
-          <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="absolute left-2 top-14 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-left-12"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#edf2ee] text-[#466f56]"><CircleCheck size={15} /></span></div></div><div className="absolute bottom-12 right-0 z-10 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-right-8"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#fff1f0] text-[#c96868]"><UsersRound size={15} /></span><div><p className="font-mono-custom text-[8px] font-bold text-[#c96868]">4 PESSOAS JÁ AJUDARAM</p><p className="mt-0.5 text-[10px] font-semibold text-[#27302b]">Uma rede em movimento</p></div></div></div><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup /></div></div>
+          <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="absolute left-2 top-14 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-left-12"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#edf2ee] text-[#466f56]"><CircleCheck size={15} /></span></div></div><div className="absolute bottom-12 right-0 z-10 hidden rounded-2xl border border-[#e1e8e3] bg-white p-3 shadow-sm sm:block lg:-right-8"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-lg bg-[#fff1f0] text-[#c96868]"><UsersRound size={15} /></span><div><p className="font-mono-custom text-[8px] font-bold text-[#c96868]">4 PESSOAS JÁ AJUDARAM</p><p className="mt-0.5 text-[10px] font-semibold text-[#27302b]">Uma rede em movimento</p></div></div></div><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
         </div>
       </section>
 

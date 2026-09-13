@@ -112,11 +112,15 @@ function PhoneMockup({
             key={img}
             src={img}
             alt={`Tela ${i + 1} do aplicativo Helpers`}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${i === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${
+              i === currentIndex 
+                ? 'opacity-100 scale-100 z-10' 
+                : 'opacity-0 scale-95 z-0'
+            }`}
           />
         ))}
         {hasSlider && (
-          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
             {list.map((_, i) => (
               <span
                 key={i}

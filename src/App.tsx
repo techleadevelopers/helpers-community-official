@@ -53,11 +53,19 @@ function Logo({ light = false }: { light?: boolean }) {
         />
       </span>
 
-      <span 
-        translate="no" 
-        className={`notranslate font-display text-[1.24rem] font-extrabold tracking-[-.04em] ${light ? 'text-white' : 'text-[#27302b]'}`}
-      >
-        Helpers
+      <span className="flex items-baseline gap-1.5">
+        <span
+          translate="no"
+          className={`notranslate font-display text-[1.24rem] font-extrabold tracking-[-.04em] ${light ? 'text-white' : 'text-[#606864]'}`}
+        >
+          Helpers
+        </span>
+        <span
+          translate="no"
+          className={`notranslate text-[11px] font-light tracking-[0.06em] ${light ? 'text-white/55' : 'text-[#a3a3a3]'}`}
+        >
+          - Community
+        </span>
       </span>
     </a>
   );

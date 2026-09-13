@@ -137,7 +137,10 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; /* CORREÇÃO: Impede rolagem horizontal na raiz */
+  }
   body {
     @apply font-sans antialiased bg-background text-foreground;
     overflow-x: hidden;
@@ -149,7 +152,11 @@
   .font-display { font-family: var(--app-font-serif); }
   .font-mono-custom { font-family: var(--app-font-mono); }
   .text-balance { text-wrap: balance; }
-  .site-shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+  .site-shell { 
+    width: min(1160px, calc(100% - 40px)); 
+    margin-inline: auto; 
+    overflow-x: hidden; /* CORREÇÃO: Impede que o conteúdo empurre a tela */
+  }
   .eyebrow { font-family: var(--app-font-mono); font-size: 0.69rem; letter-spacing: .15em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .reveal { animation: rise-in .7s cubic-bezier(.2,.8,.2,1) both; }
   .reveal-delay-1 { animation-delay: .1s; }
@@ -201,6 +208,11 @@
   .site-shell { width: min(100% - 32px, 620px); }
   .hide-mobile { display: none; }
 
+  /* --- CORREÇÃO DO GAP E DO EMPURRÃO NA LATERAL NO MOBILE --- */
+  #inicio .site-shell.grid {
+    grid-template-columns: 1fr !important; /* Força 1 coluna, o gap-16 vira vertical */
+  }
+
   /* --- AJUSTE DO TÍTULO NO MOBILE --- */
   #inicio h1 {
     font-size: clamp(2rem, 8vw, 2.6rem) !important;
@@ -238,16 +250,16 @@
   /* --- AJUSTE DAS ESTATÍSTICAS DE IMPACTO NO MOBILE --- */
   #impacto .mt-16.grid {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Força 3 colunas */
-    gap: 0.5rem !important; /* Diminui o espaço entre elas */
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
   }
 
   #impacto .mt-16.grid p.font-display {
-    font-size: 1.15rem !important; /* Reduz o tamanho dos números */
+    font-size: 1.15rem !important;
   }
 
   #impacto .mt-16.grid p.mt-1 {
-    font-size: 0.65rem !important; /* Reduz o tamanho das descrições */
-    line-height: 1.2 !important; /* Melhora o espaçamento das linhas */
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
   }
 }

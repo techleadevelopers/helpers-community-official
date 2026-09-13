@@ -139,11 +139,11 @@
   * { @apply border-border; }
   html { 
     scroll-behavior: smooth; 
-    overflow-x: hidden; /* CORREÇÃO: Impede rolagem horizontal na raiz */
+    overflow-x: hidden; /* Mantido apenas na raiz para evitar rolagem horizontal */
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mantido apenas no body */
   }
   ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 }
@@ -155,7 +155,7 @@
   .site-shell { 
     width: min(1160px, calc(100% - 40px)); 
     margin-inline: auto; 
-    overflow-x: hidden; /* CORREÇÃO: Impede que o conteúdo empurre a tela */
+    /* REMOVIDO O overflow-x: hidden DAQUI */
   }
   .eyebrow { font-family: var(--app-font-mono); font-size: 0.69rem; letter-spacing: .15em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
   .reveal { animation: rise-in .7s cubic-bezier(.2,.8,.2,1) both; }

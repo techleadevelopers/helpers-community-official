@@ -33,3 +33,5 @@ dist-ssr
 
 # Arquivos de build do TypeScript (caso use TS)
 *.tsbuildinfo
+.vercel
+.env*

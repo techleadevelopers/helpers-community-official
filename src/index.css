@@ -330,7 +330,7 @@
     transform-origin: center center;
   }
 
-  /* --- NOVO: FOOTER MOBILE (mesmo layout do desktop, compactado) --- */
+  /* --- FOOTER MOBILE (mesmo layout do desktop, compactado) --- */
   footer .site-shell > div:first-child {
     flex-direction: row !important;
     align-items: flex-start !important;

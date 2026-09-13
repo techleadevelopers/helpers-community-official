@@ -192,6 +192,19 @@
   50% { opacity: 1; transform: scale(1.08); }
 }
 @keyframes draw-line { from { stroke-dashoffset: 500; } to { stroke-dashoffset: 0; } }
+
+/* --- NOVO: breathing dos mockups da seção "O aplicativo" --- */
+@keyframes phone-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+.phone-breathe {
+  animation: phone-breathe 3.5s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: center;
+  display: inline-block;
+}
+
 .float-device { animation: float-device 6s ease-in-out infinite; }
 .pulse-dot { animation: pulse-dot 2.2s ease-in-out infinite; }
 .draw-line { stroke-dasharray: 500; animation: draw-line 2s ease-out .4s both; }

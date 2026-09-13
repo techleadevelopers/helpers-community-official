@@ -40,6 +40,7 @@ const SCREEN_MAIN = 'https://res.cloudinary.com/limpeja/image/upload/v1789285201
 const SCREEN_ALT_1 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283715/WhatsApp_Image_2026-09-13_at_04.00.59_1_vgcfxm.jpg';
 const SCREEN_ALT_2 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283093/WhatsApp_Image_2026-09-13_at_04.00.59_wjmthu.jpg';
 const SCREEN_ALT_3 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283717/WhatsApp_Image_2026-09-13_at_04.00.58_f8akfz.jpg';
+const APP_ICON = 'https://res.cloudinary.com/limpeja/image/upload/v1789336695/ChatGPT_Image_13_de_set._de_2026_18_56_36_k8hss2.png';
 
 function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -190,6 +191,7 @@ function Home() {
   const heroLeft = useScrollReveal();
   const heroRight = useScrollReveal();
   const conceptLeft = useScrollReveal();
+  const conceptRight = useScrollReveal();
   const impactLeft = useScrollReveal();
   const impactRight = useScrollReveal();
   const communityLeft = useScrollReveal();
@@ -226,7 +228,24 @@ function Home() {
       </section>
 
       <section id="como-funciona" className="border-y border-[#e1e8e3] bg-white py-24 lg:py-32">
-        <div className="site-shell"><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div ref={conceptLeft} className="reveal-left"><SectionLabel>O conceito</SectionLabel><h2 className="mt-5 max-w-md font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">Uma comunidade que ajuda de verdade.</h2></div><p className="reveal-right max-w-md text-base leading-relaxed text-[#66716a]">Não é sobre ver mais conteúdo. É sobre encontrar uma situação real, decidir como participar e ver o que mudou depois.</p></div><div className="relative mt-16 grid gap-3 md:grid-cols-4">{[['01', 'Encontram', 'Casos reais perto de você.', Search], ['02', 'Ajudam', 'Cada pessoa oferece o que pode.', HandHeart], ['03', 'Conectam', 'A força de um vira rede.', UsersRound], ['04', 'Resolvem', 'O resultado fica visível.', CircleCheck]].map(([number, title, text, Icon], i) => <div key={title as string} className="group relative rounded-3xl bg-[#f8faf7] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[#eaf0ec]"><div className="flex items-center justify-between"><span className="font-mono-custom text-xs text-[#a5b2a8]">{number as string}</span><span className="grid size-10 place-items-center rounded-xl bg-white text-[#466f56] shadow-sm transition group-hover:bg-[#466f56] group-hover:text-white"><Icon size={18} /></span></div><h3 className="mt-12 font-display text-2xl font-extrabold tracking-tight text-[#27302b]">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text as string}</p>{i < 3 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden text-[#b6c8bb] md:block" size={18} />}</div>)}</div></div>
+        <div className="site-shell">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
+            <div ref={conceptLeft} className="reveal-left">
+              <SectionLabel>O conceito</SectionLabel>
+              <h2 className="mt-5 max-w-md font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">Uma comunidade que ajuda de verdade.</h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">Não é sobre ver mais conteúdo. É sobre encontrar uma situação real, decidir como participar e ver o que mudou depois.</p>
+            </div>
+            <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
+              <div className="absolute top-1/2 left-1/2 -z-0 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#eaf0ec] blur-3xl sm:size-80" />
+              <img
+                src={APP_ICON}
+                alt="Ícone do aplicativo Helpers"
+                className="relative z-10 w-[200px] object-contain sm:w-[280px] lg:w-[380px]"
+              />
+            </div>
+          </div>
+          <div className="relative mt-16 grid gap-3 md:grid-cols-4">{[['01', 'Encontram', 'Casos reais perto de você.', Search], ['02', 'Ajudam', 'Cada pessoa oferece o que pode.', HandHeart], ['03', 'Conectam', 'A força de um vira rede.', UsersRound], ['04', 'Resolvem', 'O resultado fica visível.', CircleCheck]].map(([number, title, text, Icon], i) => <div key={title as string} className="group relative rounded-3xl bg-[#f8faf7] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[#eaf0ec]"><div className="flex items-center justify-between"><span className="font-mono-custom text-xs text-[#a5b2a8]">{number as string}</span><span className="grid size-10 place-items-center rounded-xl bg-white text-[#466f56] shadow-sm transition group-hover:bg-[#466f56] group-hover:text-white"><Icon size={18} /></span></div><h3 className="mt-12 font-display text-2xl font-extrabold tracking-tight text-[#27302b]">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text as string}</p>{i < 3 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden text-[#b6c8bb] md:block" size={18} />}</div>)}</div>
+        </div>
       </section>
 
       <section id="impacto" className="overflow-hidden bg-[#edf2ee] py-24 lg:py-32">

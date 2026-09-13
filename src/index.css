@@ -220,31 +220,41 @@
     letter-spacing: -0.04em !important;
   }
 
-  /* --- AJUSTE DOS CARDS "COMO FUNCIONA" NO MOBILE --- */
+  /* --- AJUSTE DOS CARDS "COMO FUNCIONA" NO MOBILE (SEM SCROLL, MICRO CARDS) --- */
   #como-funciona .grid {
-    display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    gap: 0.75rem !important;
-    padding-bottom: 1rem !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 2x2 grid */
+    gap: 0.5rem !important; /* Gap bem pequeno */
+    overflow: visible !important;
   }
 
   #como-funciona .grid > div {
-    min-width: 160px !important;
-    flex: 0 0 auto !important;
-    scroll-snap-align: start;
-    padding: 1.25rem !important;
+    padding: 0.75rem !important; /* Padding micro */
+    border-radius: 1rem !important; /* Borda menor */
   }
 
   #como-funciona .grid > div h3 {
-    margin-top: 1.5rem !important;
-    font-size: 1.25rem !important;
+    margin-top: 0.75rem !important;
+    font-size: 1.1rem !important; /* Fonte menor */
   }
 
   #como-funciona .grid > div p {
-    font-size: 0.75rem !important;
+    font-size: 0.65rem !important; /* Fonte bem pequena */
+    line-height: 1.2 !important;
+  }
+
+  /* Ajuste dos ícones e números dentro dos cards */
+  #como-funciona .grid > div span.grid {
+    width: 2rem !important;
+    height: 2rem !important;
+    border-radius: 0.5rem !important;
+  }
+  #como-funciona .grid > div span.grid svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  #como-funciona .grid > div span.font-mono-custom {
+    font-size: 0.6rem !important;
   }
 
   /* --- AJUSTE DAS ESTATÍSTICAS DE IMPACTO NO MOBILE --- */

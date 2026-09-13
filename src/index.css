@@ -162,7 +162,6 @@
   .reveal-delay-2 { animation-delay: .2s; }
   .reveal-delay-3 { animation-delay: .3s; }
 
-  /* --- NOVAS CLASSES DE SCROLL REVEAL --- */
   .reveal-left {
     opacity: 0;
     transform: translateX(-50px);
@@ -193,7 +192,6 @@
 }
 @keyframes draw-line { from { stroke-dashoffset: 500; } to { stroke-dashoffset: 0; } }
 
-/* --- NOVO: breathing dos mockups da seção "O aplicativo" --- */
 @keyframes phone-breathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.035); }
@@ -318,7 +316,7 @@
     height: 0.6rem !important;
   }
 
-  /* --- NOVO: MOSTRAR AS 3 TELAS NA VERSÃO MOBILE (REDUZIDAS) --- */
+  /* --- TELAS DO APLICATIVO NO MOBILE --- */
   .product-phones-viewport {
     width: 100%;
     height: 300px;
@@ -330,5 +328,50 @@
   .product-phones {
     transform: scale(0.46);
     transform-origin: center center;
+  }
+
+  /* --- NOVO: FOOTER MOBILE (mesmo layout do desktop, compactado) --- */
+  footer .site-shell > div:first-child {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+  }
+  footer .site-shell > div:first-child > div:first-child {
+    flex: 0 0 auto !important;
+    max-width: 45% !important;
+  }
+  footer .site-shell > div:first-child > div:first-child p {
+    font-size: 0.7rem !important;
+    line-height: 1.4 !important;
+    margin-top: 0.75rem !important;
+  }
+  footer .site-shell > div:first-child > div:last-child {
+    flex: 1 1 auto !important;
+    gap: 1rem !important;
+    justify-content: flex-end !important;
+  }
+  footer .site-shell > div:first-child > div:last-child > div {
+    min-width: 0 !important;
+  }
+  footer .site-shell > div:first-child > div:last-child > div p.eyebrow {
+    font-size: 0.55rem !important;
+  }
+  footer .site-shell > div:first-child > div:last-child > div > div {
+    gap: 0.5rem !important;
+    margin-top: 0.5rem !important;
+  }
+  footer .site-shell > div:first-child > div:last-child > div > div a,
+  footer .site-shell > div:first-child > div:last-child > div > div button {
+    font-size: 0.7rem !important;
+  }
+  footer .site-shell > div:last-child {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    font-size: 0.6rem !important;
+  }
+  footer .site-shell > div:last-child span {
+    font-size: 0.6rem !important;
   }
 }

@@ -155,6 +155,22 @@
   .reveal-delay-1 { animation-delay: .1s; }
   .reveal-delay-2 { animation-delay: .2s; }
   .reveal-delay-3 { animation-delay: .3s; }
+
+  /* --- NOVAS CLASSES DE SCROLL REVEAL --- */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s cubic-bezier(.2,.8,.2,1), transform 0.8s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s cubic-bezier(.2,.8,.2,1), transform 0.8s cubic-bezier(.2,.8,.2,1);
+  }
+  .is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes rise-in {

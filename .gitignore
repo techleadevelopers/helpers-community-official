@@ -13,6 +13,11 @@ dist
 dist-ssr
 *.local
 
+# Binários de seed local (contêm credenciais e tokens de teste)
+src/bin/seed_cloud_profiles.rs
+src/bin/seed_rescue_fanout_test.rs
+src/bin/reset_rescue_fanout_test.rs
+
 # Variáveis de ambiente (Segurança!)
 .env
 .env.local

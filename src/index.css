@@ -203,8 +203,51 @@
 
   /* --- AJUSTE DO TÍTULO NO MOBILE --- */
   #inicio h1 {
-    font-size: clamp(2rem, 8vw, 2.6rem) !important; /* Reduz o tamanho */
-    line-height: 1.05 !important; /* Melhora o espaçamento entre linhas */
-    letter-spacing: -0.04em !important; /* Ajusta o espaçamento das letras */
+    font-size: clamp(2rem, 8vw, 2.6rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  /* --- AJUSTE DOS CARDS "COMO FUNCIONA" NO MOBILE --- */
+  #como-funciona .grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 0.75rem !important;
+    padding-bottom: 1rem !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #como-funciona .grid > div {
+    min-width: 160px !important;
+    flex: 0 0 auto !important;
+    scroll-snap-align: start;
+    padding: 1.25rem !important;
+  }
+
+  #como-funciona .grid > div h3 {
+    margin-top: 1.5rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  #como-funciona .grid > div p {
+    font-size: 0.75rem !important;
+  }
+
+  /* --- AJUSTE DAS ESTATÍSTICAS DE IMPACTO NO MOBILE --- */
+  #impacto .mt-16.grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Força 3 colunas */
+    gap: 0.5rem !important; /* Diminui o espaço entre elas */
+  }
+
+  #impacto .mt-16.grid p.font-display {
+    font-size: 1.15rem !important; /* Reduz o tamanho dos números */
+  }
+
+  #impacto .mt-16.grid p.mt-1 {
+    font-size: 0.65rem !important; /* Reduz o tamanho das descrições */
+    line-height: 1.2 !important; /* Melhora o espaçamento das linhas */
   }
 }

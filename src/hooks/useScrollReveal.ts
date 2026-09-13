@@ -1,4 +1,3 @@
-// src/hooks/useScrollReveal.ts
 import { useEffect, useRef } from 'react';
 
 export function useScrollReveal() {
@@ -8,8 +7,11 @@ export function useScrollReveal() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Entrou na tela: anima entrando
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); 
+        } else {
+          // Saiu da tela: remove a classe para poder animar de novo
+          entry.target.classList.remove('is-visible');
         }
       },
       {

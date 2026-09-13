@@ -52,8 +52,11 @@ function Logo({ light = false }: { light?: boolean }) {
         />
       </span>
 
-      <span className={`font-display text-[1.24rem] font-extrabold tracking-[-.04em] ${light ? 'text-white' : 'text-[#27302b]'}`}>
-        helpers
+      <span 
+        translate="no" 
+        className={`notranslate font-display text-[1.24rem] font-extrabold tracking-[-.04em] ${light ? 'text-white' : 'text-[#27302b]'}`}
+      >
+        Helpers
       </span>
     </a>
   );

@@ -324,7 +324,7 @@
   #inicio .site-shell.grid {
     grid-template-columns: minmax(0, 1fr) !important;
     min-height: auto !important;
-    gap: 2.5rem !important;
+    gap: 2rem !important;
   }
 
   /* Força visibilidade dos blocos com reveal na seção Hero
@@ -335,9 +335,12 @@
     transform: none !important;
   }
 
-  /* Garante que o container do telefone apareça centralizado */
+  /* Reduz o mockup do telefone da primeira seção no mobile.
+     `zoom` encolhe o elemento E o espaço que ele ocupa (diferente de transform),
+     então não precisamos compensar com margens negativas. */
   #inicio .float-device {
-    margin-top: 0.5rem;
+    zoom: 0.7;
+    margin-top: 0.25rem;
     margin-inline: auto;
     display: inline-block;
   }

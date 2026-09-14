@@ -46,6 +46,8 @@ const COMMUNITY_PHOTO_2 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 const COMMUNITY_PHOTO_3 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346973/WhatsApp_Image_2026-09-13_at_21.44.43_nw0wrg.jpg';
 const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346972/WhatsApp_Image_2026-09-13_at_21.40.45_1_w1fiwn.jpg';
 
+const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789352958/ChatGPT_Image_13_de_set._de_2026_23_20_41_ceqys7.png';
+
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <a href="#inicio" className="flex items-center gap-2.5" data-testid="link-logo">
@@ -243,6 +245,13 @@ function Home() {
 </div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
           <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
         </div>
+        {/* Imagem decorativa no canto inferior esquerdo — visível apenas no mobile */}
+        <img
+          src={HERO_CORNER_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="hero-corner-image"
+        />
       </section>
 
       <section id="como-funciona" className="concept-background relative overflow-hidden py-24 lg:py-32">

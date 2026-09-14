@@ -255,27 +255,22 @@ function Home() {
             </div>
             <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
               <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
-                {/* Arco decorativo + glow suave ao fundo */}
                 <div className="absolute inset-[10%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
                 <div className="absolute inset-[6%] rounded-full border border-[#b8d4bd]/50" aria-hidden />
 
-                {/* Card 1 — topo esquerda */}
-                <div className="absolute top-0 left-[12%] w-[40%] aspect-square rounded-[1.5rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[-8deg] z-20">
+                <div className="absolute top-0 left-[16%] w-[30%] aspect-square rounded-[1.25rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[-8deg] z-20">
                   <img src={COMMUNITY_PHOTO_1} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 2 — topo direita */}
-                <div className="absolute top-[10%] right-[4%] w-[33%] aspect-square rounded-[1.25rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[6deg] z-10">
+                <div className="absolute top-[12%] right-[8%] w-[24%] aspect-square rounded-[1rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[6deg] z-10">
                   <img src={COMMUNITY_PHOTO_2} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 3 — base esquerda */}
-                <div className="absolute bottom-[12%] left-[4%] w-[33%] aspect-square rounded-[1.25rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[6deg] z-10">
+                <div className="absolute bottom-[14%] left-[10%] w-[24%] aspect-square rounded-[1rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[6deg] z-10">
                   <img src={COMMUNITY_PHOTO_3} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 4 — base direita */}
-                <div className="absolute bottom-0 right-[10%] w-[38%] aspect-square rounded-[1.5rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[-6deg] z-20">
+                <div className="absolute bottom-[4%] right-[16%] w-[28%] aspect-square rounded-[1.25rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[-6deg] z-20">
                   <img src={COMMUNITY_PHOTO_4} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
               </div>

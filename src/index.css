@@ -201,7 +201,7 @@
     z-index: 1;
   }
 
-  /* --- Background da seção "Como funciona" (sem sombra branca) --- */
+  /* --- Background da seção "Como funciona" (sem sombra e sem borda) --- */
   .concept-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
     background-size: cover;
@@ -328,7 +328,7 @@
     );
   }
 
-  /* --- Background "Como funciona" no mobile (sem sombra branca) --- */
+  /* --- Background "Como funciona" no mobile (sem sombra e sem borda) --- */
   .concept-background {
     background-size: cover;
     background-position: center center;

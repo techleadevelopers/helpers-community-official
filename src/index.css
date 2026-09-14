@@ -176,7 +176,7 @@
   /* --- Background da seção Hero --- */
   .hero-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
     background-color: #f8faf7;
@@ -201,11 +201,11 @@
     z-index: 1;
   }
 
-  /* --- Background da seção "Como funciona" (mesma imagem do Hero) --- */
+  /* --- Background da seção "Como funciona" (cobre a seção inteira) --- */
   .concept-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
-    background-size: contain;
-    background-position: center right;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     background-color: #ffffff;
     position: relative;
@@ -300,9 +300,10 @@
     letter-spacing: -0.04em !important;
   }
 
+  /* --- Background Hero no mobile: leve zoom pra preencher --- */
   .hero-background {
+    background-size: cover;
     background-position: center top;
-    background-size: contain;
   }
   .hero-background::before {
     background: linear-gradient(
@@ -313,9 +314,10 @@
     );
   }
 
+  /* --- Background "Como funciona" no mobile: cobre a seção inteira --- */
   .concept-background {
-    background-position: center top;
-    background-size: contain;
+    background-size: cover;
+    background-position: center center;
   }
   .concept-background::before {
     background: linear-gradient(

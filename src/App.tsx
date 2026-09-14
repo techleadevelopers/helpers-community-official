@@ -99,7 +99,6 @@ function PhoneMockup({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Slider interno (quando tem múltiplas imagens e NÃO tem pulseTrigger externo)
   useEffect(() => {
     if (!hasSlider || pulseTrigger !== undefined) return;
     const timer = setInterval(() => {
@@ -110,7 +109,6 @@ function PhoneMockup({
     return () => clearInterval(timer);
   }, [hasSlider, list.length, interval, pulseTrigger]);
 
-  // Pulso sincronizado externo (para grupos de phones)
   useEffect(() => {
     if (pulseTrigger === undefined) return;
     setIsAnimating(true);
@@ -189,7 +187,6 @@ function Home() {
   const [reportOpen, setReportOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
-  // Pulso sincronizado para o grupo de 3 phones da seção "O aplicativo"
   const [productPulse, setProductPulse] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => setProductPulse((c) => c + 1), 3500);
@@ -227,8 +224,7 @@ function Home() {
   return <div className="grain min-h-[100dvh] bg-[#f8faf7]">
     <Nav onJoin={() => setJoinOpen(true)} />
     <main>
-      <section id="inicio" className="relative overflow-hidden pt-[76px]">
-        <div className="absolute -right-32 top-12 -z-0 size-[420px] rounded-full bg-[#eaf0ec] blur-3xl" /><div className="absolute -left-48 top-72 -z-0 size-[400px] rounded-full bg-[#fff1f0] opacity-60 blur-3xl" />
+      <section id="inicio" className="hero-background relative overflow-hidden pt-[76px]">
         <div className="site-shell grid min-h-[680px] items-center gap-16 py-20 lg:grid-cols-[1fr_470px] lg:gap-10 lg:py-24">
           <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>Salvando vidas todos os dias</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">Quando um animal precisa, <span className="text-[#466f56]">uma rede inteira se move.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos sociais para transformar pequenos gestos em impacto real.</p><div className="mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Baixar o Aplicativo</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3"><div className="flex -space-x-2">
   <span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#d4e2d8] overflow-hidden">

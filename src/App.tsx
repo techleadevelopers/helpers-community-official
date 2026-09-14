@@ -40,7 +40,11 @@ const SCREEN_MAIN = 'https://res.cloudinary.com/limpeja/image/upload/v1789285201
 const SCREEN_ALT_1 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283715/WhatsApp_Image_2026-09-13_at_04.00.59_1_vgcfxm.jpg';
 const SCREEN_ALT_2 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283093/WhatsApp_Image_2026-09-13_at_04.00.59_wjmthu.jpg';
 const SCREEN_ALT_3 = 'https://res.cloudinary.com/limpeja/image/upload/v1789283717/WhatsApp_Image_2026-09-13_at_04.00.58_f8akfz.jpg';
-const APP_ICON = 'https://res.cloudinary.com/limpeja/image/upload/v1789336695/ChatGPT_Image_13_de_set._de_2026_18_56_36_k8hss2.png';
+
+const COMMUNITY_PHOTO_1 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346973/WhatsApp_Image_2026-09-13_at_21.40.45_oc9heo.jpg';
+const COMMUNITY_PHOTO_2 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346973/WhatsApp_Image_2026-09-13_at_21.44.43_1_esosju.jpg';
+const COMMUNITY_PHOTO_3 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346973/WhatsApp_Image_2026-09-13_at_21.44.43_nw0wrg.jpg';
+const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346972/WhatsApp_Image_2026-09-13_at_21.40.45_1_w1fiwn.jpg';
 
 function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -250,12 +254,31 @@ function Home() {
               <p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">Não é sobre ver mais conteúdo. É sobre encontrar uma situação real, decidir como participar e ver o que mudou depois.</p>
             </div>
             <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
-              <div className="absolute top-1/2 left-1/2 -z-0 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#eaf0ec] blur-3xl sm:size-80" />
-              <img
-                src={APP_ICON}
-                alt="Ícone do aplicativo Helpers"
-                className="relative z-10 w-[200px] object-contain sm:w-[280px] lg:w-[380px]"
-              />
+              <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
+                {/* Arco decorativo + glow suave ao fundo */}
+                <div className="absolute inset-[10%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
+                <div className="absolute inset-[6%] rounded-full border border-[#b8d4bd]/50" aria-hidden />
+
+                {/* Card 1 — topo esquerda */}
+                <div className="absolute top-0 left-[12%] w-[40%] aspect-square rounded-[1.5rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[-8deg] z-20">
+                  <img src={COMMUNITY_PHOTO_1} alt="Membro da comunidade" className="h-full w-full object-cover" />
+                </div>
+
+                {/* Card 2 — topo direita */}
+                <div className="absolute top-[10%] right-[4%] w-[33%] aspect-square rounded-[1.25rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[6deg] z-10">
+                  <img src={COMMUNITY_PHOTO_2} alt="Membro da comunidade" className="h-full w-full object-cover" />
+                </div>
+
+                {/* Card 3 — base esquerda */}
+                <div className="absolute bottom-[12%] left-[4%] w-[33%] aspect-square rounded-[1.25rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[6deg] z-10">
+                  <img src={COMMUNITY_PHOTO_3} alt="Membro da comunidade" className="h-full w-full object-cover" />
+                </div>
+
+                {/* Card 4 — base direita */}
+                <div className="absolute bottom-0 right-[10%] w-[38%] aspect-square rounded-[1.5rem] overflow-hidden border-[5px] border-white shadow-[0_18px_40px_rgba(63,100,76,.20)] rotate-[-6deg] z-20">
+                  <img src={COMMUNITY_PHOTO_4} alt="Membro da comunidade" className="h-full w-full object-cover" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="relative mt-16 grid gap-3 md:grid-cols-4">{[['01', 'Encontram', 'Casos reais perto de você.', Search], ['02', 'Ajudam', 'Cada pessoa oferece o que pode.', HandHeart], ['03', 'Conectam', 'A força de um vira rede.', UsersRound], ['04', 'Resolvem', 'O resultado fica visível.', CircleCheck]].map(([number, title, text, Icon], i) => <div key={title as string} className="group relative rounded-3xl bg-[#f8faf7] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[#eaf0ec]"><div className="flex items-center justify-between"><span className="font-mono-custom text-xs text-[#a5b2a8]">{number as string}</span><span className="grid size-10 place-items-center rounded-xl bg-white text-[#466f56] shadow-sm transition group-hover:bg-[#466f56] group-hover:text-white"><Icon size={18} /></span></div><h3 className="mt-12 font-display text-2xl font-extrabold tracking-tight text-[#27302b]">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text as string}</p>{i < 3 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden text-[#b6c8bb] md:block" size={18} />}</div>)}</div>

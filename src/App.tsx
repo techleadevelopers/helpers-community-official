@@ -255,9 +255,9 @@ function Home() {
             </div>
             <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
               <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
-                {/* Círculo decorativo bem menor, atrás dos cards */}
-                <div className="absolute inset-[35%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
-                <div className="absolute inset-[30%] rounded-full border border-[#b8d4bd]/60" aria-hidden />
+                {/* Arco decorativo + glow suave ao fundo (menor, alinhado aos cards) */}
+                <div className="absolute inset-[18%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
+                <div className="absolute inset-[14%] rounded-full border border-[#b8d4bd]/50" aria-hidden />
 
                 {/* Card 1 — topo esquerda */}
                 <div className="absolute top-[6%] left-[18%] w-[28%] aspect-square rounded-[1.25rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[-8deg] z-20">

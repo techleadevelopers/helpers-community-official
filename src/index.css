@@ -358,12 +358,13 @@
   }
 
   /* --- Imagem decorativa do canto (Hero) – visível apenas no mobile --- */
+  /* Aumentada em 40%: 55px → 77px */
   .hero-corner-image {
     display: block;
     position: absolute;
     bottom: 12px;
     left: 12px;
-    width: 55px;
+    width: 77px;
     height: auto;
     z-index: 5;
     pointer-events: none;

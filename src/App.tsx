@@ -245,7 +245,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="como-funciona" className="border-y border-[#e1e8e3] bg-white py-24 lg:py-32">
+      <section id="como-funciona" className="concept-background relative overflow-hidden border-y border-[#e1e8e3] py-24 lg:py-32">
         <div className="site-shell">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
             <div ref={conceptLeft} className="reveal-left">
@@ -255,33 +255,28 @@ function Home() {
             </div>
             <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
               <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
-                {/* Arco decorativo + glow suave ao fundo (menor, alinhado aos cards) */}
-                <div className="absolute inset-[18%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
-                <div className="absolute inset-[14%] rounded-full border border-[#b8d4bd]/50" aria-hidden />
+                <div className="absolute inset-[35%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
+                <div className="absolute inset-[30%] rounded-full border border-[#b8d4bd]/60" aria-hidden />
 
-                {/* Card 1 — topo esquerda */}
                 <div className="absolute top-[6%] left-[18%] w-[28%] aspect-square rounded-[1.25rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[-8deg] z-20">
                   <img src={COMMUNITY_PHOTO_1} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 2 — topo direita */}
                 <div className="absolute top-[16%] right-[10%] w-[22%] aspect-square rounded-[1rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[6deg] z-10">
                   <img src={COMMUNITY_PHOTO_2} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 3 — base esquerda */}
                 <div className="absolute bottom-[16%] left-[10%] w-[22%] aspect-square rounded-[1rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[6deg] z-10">
                   <img src={COMMUNITY_PHOTO_3} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
 
-                {/* Card 4 — base direita */}
                 <div className="absolute bottom-[6%] right-[18%] w-[26%] aspect-square rounded-[1.25rem] overflow-hidden border-[4px] border-white shadow-[0_14px_30px_rgba(63,100,76,.18)] rotate-[-6deg] z-20">
                   <img src={COMMUNITY_PHOTO_4} alt="Membro da comunidade" className="h-full w-full object-cover" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="relative mt-16 grid gap-3 md:grid-cols-4">{[['01', 'Encontrar', 'Casos reais perto de você.', Search], ['02', 'Ajude', 'Cada pessoa oferece o que pode.', HandHeart], ['03', 'Conecte-se', 'A força de um vira rede.', UsersRound], ['04', 'Apoio', 'O resultado fica visível.', CircleCheck]].map(([number, title, text, Icon], i) => <div key={title as string} className="group relative rounded-3xl bg-[#f8faf7] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[#eaf0ec]"><div className="flex items-center justify-between"><span className="font-mono-custom text-xs text-[#a5b2a8]">{number as string}</span><span className="grid size-10 place-items-center rounded-xl bg-white text-[#466f56] shadow-sm transition group-hover:bg-[#466f56] group-hover:text-white"><Icon size={18} /></span></div><h3 className="mt-12 font-display text-2xl font-extrabold tracking-tight text-[#27302b]">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text as string}</p>{i < 3 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden text-[#b6c8bb] md:block" size={18} />}</div>)}</div>
+          <div className="relative mt-16 grid gap-3 md:grid-cols-4">{[['01', 'Encontram', 'Casos reais perto de você.', Search], ['02', 'Ajudam', 'Cada pessoa oferece o que pode.', HandHeart], ['03', 'Conectam', 'A força de um vira rede.', UsersRound], ['04', 'Resolvem', 'O resultado fica visível.', CircleCheck]].map(([number, title, text, Icon], i) => <div key={title as string} className="group relative rounded-3xl bg-[#f8faf7] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[#eaf0ec]"><div className="flex items-center justify-between"><span className="font-mono-custom text-xs text-[#a5b2a8]">{number as string}</span><span className="grid size-10 place-items-center rounded-xl bg-white text-[#466f56] shadow-sm transition group-hover:bg-[#466f56] group-hover:text-white"><Icon size={18} /></span></div><h3 className="mt-12 font-display text-2xl font-extrabold tracking-tight text-[#27302b]">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text as string}</p>{i < 3 && <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden text-[#b6c8bb] md:block" size={18} />}</div>)}</div>
         </div>
       </section>
 

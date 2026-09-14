@@ -358,11 +358,11 @@
   }
 
   /* =========================================================
-     Aumenta a seção Hero pela parte de baixo para dar espaço
-     para a imagem decorativa descer além do limite antigo.
+     Aumenta a seção Hero pela parte de baixo (120px) para a
+     imagem decorativa descer bem mais.
      ========================================================= */
   #inicio {
-    padding-bottom: 90px !important;
+    padding-bottom: 120px !important;
   }
 
   /* --- Imagem decorativa do canto (Hero) – visível apenas no mobile --- */

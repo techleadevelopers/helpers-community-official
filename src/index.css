@@ -318,8 +318,28 @@
   .site-shell { width: min(100% - 32px, 620px); }
   .hide-mobile { display: none; }
 
+  /* =========================================================
+     FIX: Seção Hero no mobile – garantir que o mockup apareça
+     ========================================================= */
   #inicio .site-shell.grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: auto !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Força visibilidade dos blocos com reveal na seção Hero
+     (evita que o mockup fique com opacity:0 caso o observer não dispare) */
+  #inicio .reveal-left,
+  #inicio .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Garante que o container do telefone apareça centralizado */
+  #inicio .float-device {
+    margin-top: 0.5rem;
+    margin-inline: auto;
+    display: inline-block;
   }
 
   #inicio h1 {
@@ -379,7 +399,6 @@
     max-width: 100% !important;
     overflow: hidden !important;
   }
-  /* Força o grid para uma coluna real (minmax 0) para o conteúdo poder encolher */
   #produto .site-shell > .grid {
     grid-template-columns: minmax(0, 1fr) !important;
     min-width: 0 !important;
@@ -391,7 +410,6 @@
     max-width: 100% !important;
     width: 100% !important;
   }
-  /* Heading e parágrafos sem estourar */
   #produto h2,
   #produto p {
     max-width: 100% !important;
@@ -399,8 +417,6 @@
     overflow-wrap: break-word !important;
   }
 
-  /* Viewport dos phones: relative + overflow hidden, filhos posicionados de forma absoluta
-     para não influenciar o tamanho da coluna do grid. */
   .product-phones-viewport {
     position: relative !important;
     width: 100% !important;
@@ -426,8 +442,6 @@
   }
 
   /* --- Correção do Grid na seção Como Funciona --- */
-  /* Aplica o grid de 2 colunas APENAS nos 4 cards de baixo,
-     permitindo que o texto e as imagens se empilhem em 1 coluna */
   #como-funciona .relative.mt-16.grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;

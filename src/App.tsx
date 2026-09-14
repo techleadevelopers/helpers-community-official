@@ -245,7 +245,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="como-funciona" className="concept-background relative overflow-hidden border-y border-[#e1e8e3] py-24 lg:py-32">
+      <section id="como-funciona" className="concept-background relative overflow-hidden py-24 lg:py-32">
         <div className="site-shell">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
             <div ref={conceptLeft} className="reveal-left">

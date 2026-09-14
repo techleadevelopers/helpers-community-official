@@ -357,12 +357,19 @@
     letter-spacing: -0.04em !important;
   }
 
+  /* =========================================================
+     Aumenta a seção Hero pela parte de baixo para dar espaço
+     para a imagem decorativa descer além do limite antigo.
+     ========================================================= */
+  #inicio {
+    padding-bottom: 60px !important;
+  }
+
   /* --- Imagem decorativa do canto (Hero) – visível apenas no mobile --- */
-  /* Aumentada em 50%: 77px → 116px | 10% mais para baixo que o valor anterior */
   .hero-corner-image {
     display: block;
     position: absolute;
-    bottom: 7.72px;
+    bottom: 12px;
     left: 12px;
     width: 116px;
     height: auto;

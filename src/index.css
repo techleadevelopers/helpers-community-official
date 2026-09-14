@@ -368,34 +368,36 @@
     background-position: center center;
   }
 
-  #como-funciona .grid {
+  /* --- Correção do Grid na seção Como Funciona --- */
+  /* Aplica o grid de 2 colunas APENAS nos 4 cards de baixo, permitindo que o texto e as imagens se empilhem em 1 coluna */
+  #como-funciona .relative.mt-16.grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 0.5rem !important;
     overflow: visible !important;
   }
-  #como-funciona .grid > div {
+  #como-funciona .relative.mt-16.grid > div {
     padding: 0.75rem !important;
     border-radius: 1rem !important;
   }
-  #como-funciona .grid > div h3 {
+  #como-funciona .relative.mt-16.grid > div h3 {
     margin-top: 0.75rem !important;
     font-size: 1.1rem !important;
   }
-  #como-funciona .grid > div p {
+  #como-funciona .relative.mt-16.grid > div p {
     font-size: 0.65rem !important;
     line-height: 1.2 !important;
   }
-  #como-funciona .grid > div span.grid {
+  #como-funciona .relative.mt-16.grid > div span.grid {
     width: 2rem !important;
     height: 2rem !important;
     border-radius: 0.5rem !important;
   }
-  #como-funciona .grid > div span.grid svg {
+  #como-funciona .relative.mt-16.grid > div span.grid svg {
     width: 1rem !important;
     height: 1rem !important;
   }
-  #como-funciona .grid > div span.font-mono-custom {
+  #como-funciona .relative.mt-16.grid > div span.font-mono-custom {
     font-size: 0.6rem !important;
   }
 

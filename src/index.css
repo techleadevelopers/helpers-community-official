@@ -173,6 +173,7 @@
     color: rgba(255, 255, 255, 0.55);
   }
 
+  /* --- Background da seção Hero --- */
   .hero-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
     background-size: contain;
@@ -196,6 +197,34 @@
     pointer-events: none;
   }
   .hero-background > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- Background da seção "Como funciona" (mesma imagem do Hero) --- */
+  .concept-background {
+    background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    position: relative;
+  }
+  .concept-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.55) 40%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+  .concept-background > * {
     position: relative;
     z-index: 1;
   }
@@ -281,6 +310,19 @@
       rgba(248, 250, 247, 0.75) 0%,
       rgba(248, 250, 247, 0.4) 50%,
       rgba(248, 250, 247, 0.85) 100%
+    );
+  }
+
+  .concept-background {
+    background-position: center top;
+    background-size: contain;
+  }
+  .concept-background::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.9) 100%
     );
   }
 

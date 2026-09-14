@@ -254,7 +254,7 @@ function Home() {
               <p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">Não é sobre ver mais conteúdo. É sobre encontrar uma situação real, decidir como participar e ver o que mudou depois.</p>
             </div>
             <div ref={conceptRight} className="reveal-right relative flex justify-center lg:justify-end">
-              <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px]">
+              <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px] shrink-0">
                 <div className="absolute inset-[35%] rounded-full bg-[#eaf0ec] blur-3xl opacity-70" aria-hidden />
                 <div className="absolute inset-[30%] rounded-full border border-[#b8d4bd]/60" aria-hidden />
 

@@ -328,10 +328,10 @@
     letter-spacing: -0.04em !important;
   }
 
-  /* --- Background Hero no mobile --- */
+  /* --- Background Hero no mobile (igual ao Conceito: center center) --- */
   .hero-background {
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
   }
   .hero-background::before {
     background: linear-gradient(
@@ -362,7 +362,7 @@
     );
   }
 
-  /* --- Background "O aplicativo" no mobile --- */
+  /* --- Background "O aplicativo" no mobile (igual ao Conceito: center center) --- */
   .product-background {
     background-size: cover;
     background-position: center center;

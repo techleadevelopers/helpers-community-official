@@ -201,7 +201,7 @@
     z-index: 1;
   }
 
-  /* --- Background da seção "Como funciona" --- */
+  /* --- Background da seção "Como funciona" (sem sombra branca) --- */
   .concept-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
     background-size: cover;
@@ -209,20 +209,6 @@
     background-repeat: no-repeat;
     background-color: #ffffff;
     position: relative;
-  }
-  .concept-background::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.55) 40%,
-      rgba(255, 255, 255, 0.15) 75%,
-      transparent 100%
-    );
-    z-index: 0;
-    pointer-events: none;
   }
   .concept-background > * {
     position: relative;
@@ -342,18 +328,10 @@
     );
   }
 
-  /* --- Background "Como funciona" no mobile --- */
+  /* --- Background "Como funciona" no mobile (sem sombra branca) --- */
   .concept-background {
     background-size: cover;
     background-position: center center;
-  }
-  .concept-background::before {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0.9) 100%
-    );
   }
 
   /* --- Background "Impacto" no mobile --- */

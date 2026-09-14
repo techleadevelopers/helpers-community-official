@@ -243,6 +243,20 @@
     z-index: 1;
   }
 
+  /* --- Background da seção "O aplicativo" (mesma imagem do "Como funciona") --- */
+  .product-background {
+    background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    position: relative;
+  }
+  .product-background > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .reveal { animation: rise-in .7s cubic-bezier(.2,.8,.2,1) both; }
   .reveal-delay-1 { animation-delay: .1s; }
   .reveal-delay-2 { animation-delay: .2s; }
@@ -346,6 +360,12 @@
       rgba(237, 242, 238, 0.5) 50%,
       rgba(237, 242, 238, 0.9) 100%
     );
+  }
+
+  /* --- Background "O aplicativo" no mobile --- */
+  .product-background {
+    background-size: cover;
+    background-position: center center;
   }
 
   #como-funciona .grid {

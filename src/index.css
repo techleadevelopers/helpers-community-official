@@ -334,9 +334,9 @@
     grid-template-columns: minmax(0, 1fr) !important;
     min-height: auto !important;
     gap: 2rem !important;
-    /* Reduz o padding-top do grid em 50% (de 80px para 40px),
+    /* Padding-top reduzido drasticamente (80px → 15px),
        aproximando o texto "SALVANDO VIDAS TODOS OS DIAS" do header. */
-    padding-top: 40px !important;
+    padding-top: 15px !important;
   }
 
   /* Força visibilidade dos blocos com reveal na seção Hero */
@@ -366,7 +366,7 @@
      e aumenta a seção pela parte de baixo para a imagem descer.
      ========================================================= */
   #inicio {
-    padding-top: 96px !important;
+    padding-top: 76px !important;
     padding-bottom: 120px !important;
   }
 

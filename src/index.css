@@ -351,17 +351,19 @@
     display: inline-block;
   }
 
+  /* Título principal menor no mobile */
   #inicio h1 {
-    font-size: clamp(2rem, 8vw, 2.6rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.04em !important;
+    font-size: clamp(1.6rem, 6.5vw, 2.1rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em !important;
   }
 
   /* =========================================================
-     Aumenta a seção Hero pela parte de baixo (120px) para a
-     imagem decorativa descer bem mais.
+     Reduz o espaçamento entre o header e o conteúdo do Hero,
+     e aumenta a seção pela parte de baixo para a imagem descer.
      ========================================================= */
   #inicio {
+    padding-top: 96px !important;
     padding-bottom: 120px !important;
   }
 

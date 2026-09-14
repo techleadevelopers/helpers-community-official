@@ -173,6 +173,11 @@
     color: rgba(255, 255, 255, 0.55);
   }
 
+  /* --- Imagem decorativa do canto (Hero) — invisível no desktop --- */
+  .hero-corner-image {
+    display: none;
+  }
+
   /* --- Background da seção Hero --- */
   .hero-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
@@ -199,6 +204,10 @@
   .hero-background > * {
     position: relative;
     z-index: 1;
+  }
+  /* A imagem do canto precisa ficar acima do ::before (que tem z-index 0) */
+  .hero-background > .hero-corner-image {
+    z-index: 5;
   }
 
   /* --- Background da seção "Como funciona" (sem sombra e sem borda) --- */
@@ -327,17 +336,14 @@
     gap: 2rem !important;
   }
 
-  /* Força visibilidade dos blocos com reveal na seção Hero
-     (evita que o mockup fique com opacity:0 caso o observer não dispare) */
+  /* Força visibilidade dos blocos com reveal na seção Hero */
   #inicio .reveal-left,
   #inicio .reveal-right {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  /* Reduz o mockup do telefone da primeira seção no mobile.
-     `zoom` encolhe o elemento E o espaço que ele ocupa (diferente de transform),
-     então não precisamos compensar com margens negativas. */
+  /* Reduz o mockup do telefone da primeira seção no mobile. */
   #inicio .float-device {
     zoom: 0.7;
     margin-top: 0.25rem;
@@ -349,6 +355,19 @@
     font-size: clamp(2rem, 8vw, 2.6rem) !important;
     line-height: 1.05 !important;
     letter-spacing: -0.04em !important;
+  }
+
+  /* --- Imagem decorativa do canto (Hero) – visível apenas no mobile --- */
+  .hero-corner-image {
+    display: block;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 55px;
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+    user-select: none;
   }
 
   /* --- Background Hero no mobile (igual ao Conceito: center center) --- */

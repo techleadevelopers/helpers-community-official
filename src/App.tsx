@@ -239,6 +239,12 @@ function Home() {
     ['Onde o Helpers está disponível?', 'Começamos por São Paulo e estamos crescendo junto com os primeiros grupos locais. A ideia é que a ajuda aconteça perto de quem precisa dela.'],
     ['Como vocês garantem transparência?', 'Cada destinação tem instituição, valor, data, finalidade, comprovante e histórico. A confiança não é uma promessa: é uma tela que qualquer pessoa pode consultar.'],
   ];
+  const appSteps = [
+    { icon: Search,       title: 'Encontrar um caso',        text: 'Veja o que está acontecendo perto de você.' },
+    { icon: BellRing,     title: 'Acionar pessoas próximas', text: 'Convide quem pode fazer parte da solução.' },
+    { icon: Eye,          title: 'Acompanhar a resposta',    text: 'Receba atualizações até tudo se resolver.' },
+    { icon: CircleCheck,  title: 'Resolver',                 text: 'Registre o resultado. Inspire o próximo gesto.' },
+  ];
   return <div className="grain min-h-[100dvh] bg-[#f8faf7]">
     <Nav onJoin={() => setJoinOpen(true)} />
     <main>
@@ -310,44 +316,33 @@ function Home() {
       <section id="produto" className="product-background relative overflow-hidden py-24 lg:py-32">
         <div className="site-shell">
           {/* ===== FLUXO DO USUÁRIO ===== */}
-          <div className="grid items-center gap-14 lg:grid-cols-[1fr_.9fr]">
-            <div ref={productLeft} className="reveal-left">
-              <SectionLabel>O aplicativo</SectionLabel>
-              <h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">A ajuda começa onde você está.</h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">Uma experiência simples para momentos que importam. Feita para você encontrar, agir e acompanhar — sem perder o fio da história.</p>
-              <div className="mt-10 space-y-5">
-                {[['Encontrar um caso', 'Veja o que está acontecendo perto de você.', Search], ['Acionar pessoas próximas', 'Convide quem pode fazer parte da solução.', BellRing], ['Acompanhar a resposta', 'Receba atualizações até tudo se resolver.', Eye], ['Resolver', 'Registre o resultado. Inspire o próximo gesto.', CircleCheck]].map(([title, text, Icon], i) => (
-                  <div key={title as string} className="flex items-center gap-4">
-                    <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${i === 3 ? 'bg-[#fff1f0] text-[#c96868]' : 'bg-[#edf2ee] text-[#466f56]'}`}><Icon size={18} /></span>
-                    <div>
-                      <p className="text-sm font-bold text-[#27302b]">{title as string}</p>
-                      <p className="mt-0.5 text-xs text-[#66716a]">{text as string}</p>
-                    </div>
-                    <ArrowRight size={15} className="ml-auto text-[#a5b2a8]" />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div ref={productRight} className="reveal-right relative flex justify-center lg:justify-end">
-              <div className="absolute left-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-[#eaf0ec] blur-2xl" />
-              <div className="product-phones-viewport">
-                <div className="product-phones flex items-center justify-center">
-                  <div className="relative z-10 -mr-16 mt-16 rotate-[-6deg]">
-                    <PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} />
-                  </div>
-                  <div className="relative z-20">
-                    <PhoneMockup imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} />
-                  </div>
-                  <div className="relative z-10 -ml-16 mt-16 rotate-[6deg]">
-                    <PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} />
-                  </div>
-                  {/* NOVO: 4ª tela — Mapa de casos */}
-                  <div className="relative z-0 -ml-20 mt-28 rotate-[12deg] scale-90 opacity-80">
-                    <PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} />
+          <div ref={productLeft} className="reveal-left max-w-3xl">
+            <SectionLabel>O aplicativo</SectionLabel>
+            <h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">A ajuda começa onde você está.</h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-[#66716a]">Uma experiência simples para momentos que importam. Feita para você encontrar, agir e acompanhar — sem perder o fio da história.</p>
+
+            {/* 4 passos em linha */}
+            <div className="app-steps-row">
+              {appSteps.map(({ icon: Icon, title, text }, i) => (
+                <div key={title} className="app-step">
+                  <span className={`app-step-icon ${i === 3 ? 'bg-[#fff1f0] text-[#c96868]' : 'bg-[#edf2ee] text-[#466f56]'}`}>
+                    <Icon size={18} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-[#27302b]">{title}</p>
+                    <p className="mt-0.5 text-xs text-[#66716a]">{text}</p>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+
+          {/* 4 telas alinhadas abaixo */}
+          <div ref={productRight} className="reveal-right mt-14 lg:mt-16 ong-phones-row">
+            <PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} />
+            <PhoneMockup compact imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} />
+            <PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} />
+            <PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} />
           </div>
 
           {/* ===== NOVA SUB-SEÇÃO: FLUXO DA ONG ===== */}
@@ -384,7 +379,7 @@ function Home() {
 }
 
 function Router() {
-  return <ErrorBoundary resetKey={useLocation()[0]}><Switch><Route path="/" component={Home} /><Route component={NotFound} /></Switch></ErrorBoundary>;
+  return <ErrorBoundary resetKey={useLocation()[0]}><Switch><Route path="/" component={Home} /><Route path="/not-found" component={NotFound} /></Switch></ErrorBoundary>;
 }
 
 function App() {

@@ -48,6 +48,16 @@ const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 
 const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789352958/ChatGPT_Image_13_de_set._de_2026_23_20_41_ceqys7.png';
 
+// ============================================================
+// NOVAS IMAGENS — SUBSTITUIR PELAS URLs REAIS DEPOIS
+// ============================================================
+const MAPS_SCREEN   = 'https://example.com/helpers/maps-screen.png';
+const ONG_SCREEN_1  = 'https://example.com/helpers/ong-screen-1.png';
+const ONG_SCREEN_2  = 'https://example.com/helpers/ong-screen-2.png';
+const ONG_SCREEN_3  = 'https://example.com/helpers/ong-screen-3.png';
+const ONG_SCREEN_4  = 'https://example.com/helpers/ong-screen-4.png';
+const ONG_SCREEN_5  = 'https://example.com/helpers/ong-screen-5.png';
+
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <a href="#inicio" className="flex items-center gap-2.5" data-testid="link-logo">
@@ -209,6 +219,8 @@ function Home() {
   const communityRight = useScrollReveal();
   const productLeft = useScrollReveal();
   const productRight = useScrollReveal();
+  const ongLeft = useScrollReveal();
+  const ongRight = useScrollReveal();
   const transparencyLeft = useScrollReveal();
   const transparencyRight = useScrollReveal();
   const ctaLeft = useScrollReveal();
@@ -245,7 +257,6 @@ function Home() {
 </div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
           <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
         </div>
-        {/* Imagem decorativa no canto inferior esquerdo — visível apenas no mobile */}
         <img
           src={HERO_CORNER_IMAGE}
           alt=""
@@ -298,6 +309,7 @@ function Home() {
 
       <section id="produto" className="product-background relative overflow-hidden py-24 lg:py-32">
         <div className="site-shell">
+          {/* ===== FLUXO DO USUÁRIO ===== */}
           <div className="grid items-center gap-14 lg:grid-cols-[1fr_.9fr]">
             <div ref={productLeft} className="reveal-left">
               <SectionLabel>O aplicativo</SectionLabel>
@@ -329,8 +341,32 @@ function Home() {
                   <div className="relative z-10 -ml-16 mt-16 rotate-[6deg]">
                     <PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} />
                   </div>
+                  {/* NOVO: 4ª tela — Mapa de casos */}
+                  <div className="relative z-0 -ml-20 mt-28 rotate-[12deg] scale-90 opacity-80">
+                    <PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} />
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* ===== NOVA SUB-SEÇÃO: FLUXO DA ONG ===== */}
+          <div className="mt-24 lg:mt-32">
+            <div ref={ongLeft} className="reveal-left max-w-2xl">
+              <SectionLabel>Fluxo da ONG</SectionLabel>
+              <h3 className="mt-5 font-display text-3xl font-extrabold leading-[1.05] tracking-[-.05em] text-[#27302b] sm:text-4xl">
+                Da chamada ao comprovante, sem perder o fio.
+              </h3>
+              <p className="mt-5 text-base leading-relaxed text-[#66716a]">
+                Cada etapa da operação — cadastro, campanha, destinação e prestação de contas — acontece em um fluxo único, visível para quem acompanha.
+              </p>
+            </div>
+            <div ref={ongRight} className="reveal-right mt-12 ong-phones-row">
+              <PhoneMockup compact imageUrl={ONG_SCREEN_1} />
+              <PhoneMockup compact imageUrl={ONG_SCREEN_2} />
+              <PhoneMockup compact imageUrl={ONG_SCREEN_3} />
+              <PhoneMockup compact imageUrl={ONG_SCREEN_4} />
+              <PhoneMockup compact imageUrl={ONG_SCREEN_5} />
             </div>
           </div>
         </div>

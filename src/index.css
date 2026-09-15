@@ -392,24 +392,29 @@
     padding-bottom: 120px !important;
   }
 
+  /* ============================================================
+     HERO CTA — empilhado (mobile): botão em cima, link abaixo
+     ============================================================ */
   .hero-cta-row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
     gap: 0.6rem !important;
     width: 100% !important;
+    max-width: 280px !important;
     margin-top: 2rem !important;
   }
   .hero-cta-row > * {
     width: 100% !important;
     justify-content: center !important;
-    padding: 0.7rem 0.85rem !important;
-    font-size: 0.76rem !important;
-    gap: 0.35rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.82rem !important;
+    gap: 0.4rem !important;
     white-space: nowrap !important;
   }
   .hero-cta-row > * svg {
-    width: 0.85rem !important;
-    height: 0.85rem !important;
+    width: 0.9rem !important;
+    height: 0.9rem !important;
   }
 
   .hero-corner-image {
@@ -493,7 +498,7 @@
     -ms-overflow-style: none;
     width: 100% !important;
     max-width: 100% !important;
-    height: 440px !important;
+    height: 400px !important;
   }
   .ong-phones-row.phones-fan::-webkit-scrollbar {
     display: none;
@@ -518,27 +523,23 @@
     transform-origin: center center;
   }
 
-  /* Phone esquerdo — mais pra fora, menos inclinado */
   .ong-phones-row.phones-fan > .fan-item:nth-child(1) {
-    transform: translate(-50%, -50%) translateX(-90px) rotate(-10deg) scale(0.72);
+    transform: translate(-50%, -50%) translateX(-82px) rotate(-10deg) scale(0.64);
     z-index: 1;
     opacity: 0.95;
   }
 
-  /* Phone central — reto, maior, na frente */
   .ong-phones-row.phones-fan > .fan-item:nth-child(2) {
-    transform: translate(-50%, -50%) translateX(0) rotate(0deg) scale(0.88);
+    transform: translate(-50%, -50%) translateX(0) rotate(0deg) scale(0.79);
     z-index: 3;
   }
 
-  /* Phone direito — mais pra fora, menos inclinado */
   .ong-phones-row.phones-fan > .fan-item:nth-child(3) {
-    transform: translate(-50%, -50%) translateX(90px) rotate(10deg) scale(0.72);
+    transform: translate(-50%, -50%) translateX(82px) rotate(10deg) scale(0.64);
     z-index: 2;
     opacity: 0.95;
   }
 
-  /* Esconde o 4º e 5º phone no mobile */
   .ong-phones-row.phones-fan > .fan-item:nth-child(n+4) {
     display: none !important;
   }
@@ -647,47 +648,89 @@
     height: 0.6rem !important;
   }
 
+  /* ============================================================
+     FOOTER — versão mobile compacta
+     ============================================================ */
+  footer {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  footer .site-shell {
+    width: min(100% - 28px, 620px) !important;
+  }
+
   footer .site-shell > div:first-child {
     flex-direction: row !important;
     align-items: flex-start !important;
     justify-content: space-between !important;
-    gap: 1rem !important;
+    gap: 0.75rem !important;
   }
+
   footer .site-shell > div:first-child > div:first-child {
     flex: 0 0 auto !important;
-    max-width: 45% !important;
+    max-width: 48% !important;
+  }
+  footer .site-shell > div:first-child > div:first-child > a {
+    gap: 0.4rem !important;
+  }
+  footer .site-shell > div:first-child > div:first-child > a > span:first-child {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+    border-radius: 0.5rem !important;
+  }
+  footer .site-shell > div:first-child > div:first-child > a > span:first-child img {
+    width: 1.15rem !important;
+    height: 1.15rem !important;
+  }
+  footer .site-shell > div:first-child > div:first-child > a > span:last-child > span:first-child {
+    font-size: 0.92rem !important;
+    letter-spacing: -0.03em !important;
+  }
+  footer .site-shell > div:first-child > div:first-child > a > span:last-child > span:last-child {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.04em !important;
   }
   footer .site-shell > div:first-child > div:first-child p {
-    font-size: 0.7rem !important;
-    line-height: 1.4 !important;
-    margin-top: 0.75rem !important;
+    font-size: 0.6rem !important;
+    line-height: 1.35 !important;
+    margin-top: 0.5rem !important;
+    max-width: 100% !important;
   }
+
   footer .site-shell > div:first-child > div:last-child {
     flex: 1 1 auto !important;
-    gap: 1rem !important;
+    gap: 0.85rem !important;
     justify-content: flex-end !important;
+    row-gap: 0.6rem !important;
   }
   footer .site-shell > div:first-child > div:last-child > div {
     min-width: 0 !important;
   }
   footer .site-shell > div:first-child > div:last-child > div p.eyebrow {
-    font-size: 0.55rem !important;
+    font-size: 0.48rem !important;
+    letter-spacing: 0.12em !important;
   }
   footer .site-shell > div:first-child > div:last-child > div > div {
-    gap: 0.5rem !important;
-    margin-top: 0.5rem !important;
+    gap: 0.35rem !important;
+    margin-top: 0.4rem !important;
   }
   footer .site-shell > div:first-child > div:last-child > div > div a,
   footer .site-shell > div:first-child > div:last-child > div > div button {
-    font-size: 0.7rem !important;
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
   }
+
   footer .site-shell > div:last-child {
     flex-direction: row !important;
     justify-content: space-between !important;
+    align-items: center !important;
     gap: 0.5rem !important;
-    font-size: 0.6rem !important;
+    margin-top: 1.25rem !important;
+    padding-top: 0.75rem !important;
+    font-size: 0.5rem !important;
   }
   footer .site-shell > div:last-child span {
-    font-size: 0.6rem !important;
+    font-size: 0.5rem !important;
+    line-height: 1.2 !important;
   }
 }

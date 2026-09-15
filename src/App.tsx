@@ -231,7 +231,7 @@ function Home() {
     { icon: PawPrint, title: 'Protetores', text: 'Encontre ajuda próxima e organize resgates com mais gente.', color: 'bg-[#edf2ee] text-[#466f56]' },
     { icon: Landmark, title: 'ONGs e projetos', text: 'Receba apoio e mantenha cada resultado visível para todos.', color: 'bg-[#fff1f0] text-[#c96868]' },
     { icon: Megaphone, title: 'Criadores', text: 'Mobilize sua audiência para ações que acontecem de verdade.', color: 'bg-[#f8efe7] text-[#a86d46]' },
-    { icon: UsersRound, title: 'Voluntários', text: 'Descubra onde sua ajuda faz mais diferença hoje.', color: 'bg-[#e9f1f2] text-[#4b7478]' },
+    { icon: UsersRound, title: 'Voluntários', text: 'Descubra onde sua ajuda faz mais diferença hoje.', color: '#e9f1f2 text-[#4b7478]'.replace('#e9f1f2', 'bg-[#e9f1f2]') },
   ];
   const faqs = [
     ['O Helpers é uma plataforma de doação?', 'O Helpers é uma rede de ação. A comunidade encontra casos, oferece tempo, recursos ou conhecimento e acompanha o resultado. Quando há uma contribuição financeira, sua destinação também fica pública.'],

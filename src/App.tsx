@@ -409,13 +409,12 @@ function Home() {
             </div>
           </div>
 
-          {/* 4 telas alinhadas abaixo */}
-          <p className="swipe-hint">Passe para o lado <ArrowRight size={13} /></p>
-          <div ref={productRight} className="reveal-right mt-2 lg:mt-16 ong-phones-row">
-            <PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} />
-            <PhoneMockup compact imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} />
-            <PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} />
-            <PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} />
+          {/* 4 telas alinhadas — no mobile vira leque de 3 */}
+          <div ref={productRight} className="reveal-right mt-14 lg:mt-16 ong-phones-row phones-fan">
+            <div className="fan-item"><PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} /></div>
+            <div className="fan-item"><PhoneMockup compact imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} /></div>
+            <div className="fan-item"><PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} /></div>
+            <div className="fan-item"><PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} /></div>
           </div>
 
           {/* ===== NOVA SUB-SEÇÃO: FLUXO DA ONG ===== */}
@@ -429,13 +428,12 @@ function Home() {
                 Cada etapa da operação — cadastro, campanha, destinação e prestação de contas — acontece em um fluxo único, visível para quem acompanha.
               </p>
             </div>
-            <p className="swipe-hint">Passe para o lado <ArrowRight size={13} /></p>
-            <div ref={ongRight} className="reveal-right mt-2 ong-phones-row ong-phones-row-5">
-              <PhoneMockup compact imageUrl={ONG_SCREEN_1} />
-              <PhoneMockup compact imageUrl={ONG_SCREEN_2} />
-              <PhoneMockup compact imageUrl={ONG_SCREEN_3} />
-              <PhoneMockup compact imageUrl={ONG_SCREEN_4} />
-              <PhoneMockup compact imageUrl={ONG_SCREEN_5} />
+            <div ref={ongRight} className="reveal-right mt-12 ong-phones-row ong-phones-row-5 phones-fan">
+              <div className="fan-item"><PhoneMockup compact imageUrl={ONG_SCREEN_1} /></div>
+              <div className="fan-item"><PhoneMockup compact imageUrl={ONG_SCREEN_2} /></div>
+              <div className="fan-item"><PhoneMockup compact imageUrl={ONG_SCREEN_3} /></div>
+              <div className="fan-item"><PhoneMockup compact imageUrl={ONG_SCREEN_4} /></div>
+              <div className="fan-item"><PhoneMockup compact imageUrl={ONG_SCREEN_5} /></div>
             </div>
           </div>
         </div>

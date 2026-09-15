@@ -47,7 +47,7 @@ const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 
 const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789514839/Gemini_Generated_Image_e51yvze51yvze51y-Photoroom_ehxs7g.png';
 
-/* >>> NOVA IMAGEM: acima do mockup do celular (hero) <<< */
+/* Beija-flor — desktop: acima do mockup | mobile: inline com os avatares */
 const HERO_ABOVE_PHONE_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789514842/image-Photoroom_3_mqh1ej.png';
 
 const MAPS_SCREEN   = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
@@ -250,7 +250,15 @@ function Home() {
     <main>
       <section id="inicio" className="hero-background relative overflow-hidden pt-[76px]">
         <div className="site-shell grid min-h-[680px] items-center gap-16 py-20 lg:grid-cols-[1fr_470px] lg:gap-10 lg:py-24">
-          <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>REDE DE PROTEÇÃO ANIMAL</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">A comunidade que protege <span className="text-[#466f56]">quem não pode pedir ajuda.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos para transformar atenção em ação — e ação em proteção real.</p><div className="hero-cta-row mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Quero ser um Helper</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3"><div className="flex -space-x-2">
+          <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>REDE DE PROTEÇÃO ANIMAL</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">A comunidade que protege <span className="text-[#466f56]">quem não pode pedir ajuda.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos para transformar atenção em ação — e ação em proteção real.</p><div className="hero-cta-row mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Quero ser um Helper</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3">
+  {/* Beija-flor inline — visível apenas no mobile, antes dos micro avatares */}
+  <img
+    src={HERO_ABOVE_PHONE_IMAGE}
+    alt=""
+    aria-hidden="true"
+    className="hero-bird-inline"
+  />
+  <div className="flex -space-x-2">
   <span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#d4e2d8] overflow-hidden">
     <img src="https://res.cloudinary.com/limpeja/image/upload/v1789338319/WhatsApp_Image_2026-09-13_at_19.23.41_1_uqcoci.jpg" alt="Avatar" className="h-full w-full object-cover" />
   </span>
@@ -262,7 +270,7 @@ function Home() {
   </span>
 </div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
           <div ref={heroRight} className="reveal-right relative z-10 flex flex-col items-center justify-center lg:justify-end">
-            {/* >>> IMAGEM ACIMA DO MOCKUP (pequena) <<< */}
+            {/* Beija-flor acima do mockup — visível apenas no desktop */}
             <img
               src={HERO_ABOVE_PHONE_IMAGE}
               alt=""

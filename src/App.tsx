@@ -333,7 +333,7 @@ function Home() {
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="eyebrow">Vidas protegidas em setembro</p>
-                    <p className="mt-3 font-display text-4xl font-extrabold tracking-[-.06em] text-[#27302b] sm:text-5xl">1.247 cães</p>
+                    <p className="mt-3 font-display text-4xl font-extrabold tracking-[-.06em] text-[#27302b] sm:text-5xl">1.247 animais</p>
                     <p className="mt-1 text-sm text-[#66716a]">resgatados, tratados ou reencontrados</p>
                   </div>
                   <span className="grid size-11 place-items-center rounded-2xl bg-[#eaf0ec] text-[#466f56]"><PawPrint size={21} /></span>
@@ -377,7 +377,7 @@ function Home() {
         <div className="site-shell mt-16 grid gap-3 border-t border-[#d5e2d8] pt-8 sm:grid-cols-3">
           <div>
             <p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">12.847</p>
-            <p className="mt-1 text-sm text-[#66716a]">cães protegidos pela rede</p>
+            <p className="mt-1 text-sm text-[#66716a]">animais protegidos pela rede</p>
           </div>
           <div>
             <p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">143</p>

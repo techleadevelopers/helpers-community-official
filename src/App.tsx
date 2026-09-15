@@ -11,7 +11,6 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   BellRing,
   Check,
   ChevronDown,
@@ -49,14 +48,18 @@ const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789352958/ChatGPT_Image_13_de_set._de_2026_23_20_41_ceqys7.png';
 
 // ============================================================
-// NOVAS IMAGENS — SUBSTITUIR PELAS URLs REAIS DEPOIS
+// TELAS DO FLUXO DO USUÁRIO (4 telas)
 // ============================================================
-const MAPS_SCREEN   = 'https://example.com/helpers/maps-screen.png';
-const ONG_SCREEN_1  = 'https://example.com/helpers/ong-screen-1.png';
-const ONG_SCREEN_2  = 'https://example.com/helpers/ong-screen-2.png';
-const ONG_SCREEN_3  = 'https://example.com/helpers/ong-screen-3.png';
-const ONG_SCREEN_4  = 'https://example.com/helpers/ong-screen-4.png';
-const ONG_SCREEN_5  = 'https://example.com/helpers/ong-screen-5.png';
+const MAPS_SCREEN   = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
+
+// ============================================================
+// TELAS DO FLUXO DA ONG (5 telas)
+// ============================================================
+const ONG_SCREEN_1  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433386/WhatsApp_Image_2026-09-14_at_21.15.33_cjason.jpg';
+const ONG_SCREEN_2  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433385/WhatsApp_Image_2026-09-14_at_21.15.31_aulytg.jpg';
+const ONG_SCREEN_3  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
+const ONG_SCREEN_4  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433385/WhatsApp_Image_2026-09-14_at_21.20.39_ybrt9x.jpg';
+const ONG_SCREEN_5  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433385/WhatsApp_Image_2026-09-14_at_21.15.30_1_znwc0m.jpg';
 
 function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -307,8 +310,84 @@ function Home() {
       </section>
 
       <section id="impacto" className="impact-background relative overflow-hidden py-24 lg:py-32">
-        <div className="site-shell"><div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center"><div ref={impactLeft} className="reveal-left"><SectionLabel>Impacto Helpers</SectionLabel><h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">A comunidade gera.<br /><span className="text-[#466f56]">A comunidade acompanha.</span><br />A comunidade transforma.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">Todo gesto deixa um rastro. Por isso, tornamos público o caminho entre uma intenção e uma mudança concreta.</p><button onClick={() => setReportOpen(!reportOpen)} className="group mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#466f56]" data-testid="button-impact-report">{reportOpen ? 'Fechar relatório' : 'Ver relatório completo'} <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></button></div><div ref={impactRight} className="reveal-right relative"><div className="absolute -inset-10 rounded-full bg-[#dce8df] blur-3xl" /><div className="relative overflow-hidden rounded-[2rem] border border-[#d6e2d9] bg-white p-6 shadow-[0_20px_50px_rgba(63,100,76,.08)] sm:p-9"><div className="flex items-start justify-between"><div><p className="eyebrow">Impacto da comunidade</p><p className="mt-3 font-display text-4xl font-extrabold tracking-[-.06em] text-[#27302b] sm:text-5xl">R$ 12.450</p><p className="mt-1 text-sm text-[#66716a]">gerados em setembro de 2026</p></div><span className="grid size-11 place-items-center rounded-2xl bg-[#eaf0ec] text-[#466f56]"><BarChart3 size={21} /></span></div><div className="mt-9 grid gap-5 sm:grid-cols-[1.15fr_.85fr]"><div className="flex h-32 items-end gap-2 rounded-2xl bg-[#f8faf7] p-4">{[42, 68, 52, 78, 61, 93, 76, 100, 81, 110, 92, 124].map((h, i) => <span key={i} className={`flex-1 rounded-t-md transition-all duration-500 ${i === 11 ? 'bg-[#c96868]' : i > 8 ? 'bg-[#98b6a0]' : 'bg-[#d2e0d5]'}`} style={{ height: h }} />)}</div><div className="space-y-3">{[['Infraestrutura', 'R$ 8.200', 'w-[88%]'], ['ONGs verificadas', 'R$ 2.750', 'w-[46%]'], ['Projetos sociais', 'R$ 1.500', 'w-[30%]']].map(([label, value, width], i) => <div key={label}><div className="flex justify-between text-xs"><span className="text-[#66716a]">{label}</span><strong className="font-mono-custom text-[10px] text-[#27302b]">{value}</strong></div><div className="mt-2 h-1.5 rounded-full bg-[#edf2ee]"><div className={`h-full rounded-full ${i === 0 ? 'bg-[#466f56]' : i === 1 ? 'bg-[#98b6a0]' : 'bg-[#c96868]'} ${width}`} /></div></div>)}</div></div>{reportOpen && <div className="mt-7 border-t border-[#e1e8e3] pt-5"><p className="eyebrow">O que você encontra no relatório</p><div className="mt-4 grid gap-2 sm:grid-cols-2">{['Instituição beneficiada', 'Valor e data', 'Finalidade da ação', 'Comprovante público', 'Histórico de atualizações', 'Pessoas envolvidas'].map(item => <span key={item} className="flex items-center gap-2 text-xs font-semibold text-[#66716a]"><Check size={14} className="text-[#466f56]" />{item}</span>)}</div></div>}</div></div></div></div>
-        <div className="site-shell mt-16 grid gap-3 border-t border-[#d5e2d8] pt-8 sm:grid-cols-3"><div><p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">R$ 1.284.392</p><p className="mt-1 text-sm text-[#66716a]">destinados pela comunidade</p></div><div><p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">427</p><p className="mt-1 text-sm text-[#66716a]">instituições apoiadas</p></div><div><p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">1.842</p><p className="mt-1 text-sm text-[#66716a]">projetos em movimento</p></div></div>
+        <div className="site-shell">
+          <div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
+            <div ref={impactLeft} className="reveal-left">
+              <SectionLabel>Impacto da rede</SectionLabel>
+              <h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">
+                A rede encontra.<br />
+                <span className="text-[#466f56]">A rede protege.</span><br />
+                A rede transforma vidas.
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-[#66716a]">
+                Cada resgate, cada reencontro e cada adoção deixa um rastro. Por isso, tornamos público o caminho entre uma denúncia e uma vida protegida.
+              </p>
+              <button onClick={() => setReportOpen(!reportOpen)} className="group mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#466f56]" data-testid="button-impact-report">
+                {reportOpen ? 'Fechar relatório' : 'Ver relatório completo'}
+                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </button>
+            </div>
+            <div ref={impactRight} className="reveal-right relative">
+              <div className="absolute -inset-10 rounded-full bg-[#dce8df] blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-[#d6e2d9] bg-white p-6 shadow-[0_20px_50px_rgba(63,100,76,.08)] sm:p-9">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="eyebrow">Vidas protegidas em setembro</p>
+                    <p className="mt-3 font-display text-4xl font-extrabold tracking-[-.06em] text-[#27302b] sm:text-5xl">1.247 cães</p>
+                    <p className="mt-1 text-sm text-[#66716a]">resgatados, tratados ou reencontrados</p>
+                  </div>
+                  <span className="grid size-11 place-items-center rounded-2xl bg-[#eaf0ec] text-[#466f56]"><PawPrint size={21} /></span>
+                </div>
+                <div className="mt-9 grid gap-5 sm:grid-cols-[1.15fr_.85fr]">
+                  <div className="flex h-32 items-end gap-2 rounded-2xl bg-[#f8faf7] p-4">
+                    {[38, 62, 51, 76, 58, 88, 72, 96, 84, 108, 95, 124].map((h, i) => (
+                      <span key={i} className={`flex-1 rounded-t-md transition-all duration-500 ${i === 11 ? 'bg-[#c96868]' : i > 8 ? 'bg-[#98b6a0]' : 'bg-[#d2e0d5]'}`} style={{ height: h }} />
+                    ))}
+                  </div>
+                  <div className="space-y-3">
+                    {[['Resgates e cuidados', '486', 'w-[88%]'], ['Reencontros', '312', 'w-[62%]'], ['Adoções responsáveis', '274', 'w-[54%]'], ['Castração e prevenção', '175', 'w-[36%]']].map(([label, value, width], i) => (
+                      <div key={label}>
+                        <div className="flex justify-between text-xs">
+                          <span className="text-[#66716a]">{label}</span>
+                          <strong className="font-mono-custom text-[10px] text-[#27302b]">{value}</strong>
+                        </div>
+                        <div className="mt-2 h-1.5 rounded-full bg-[#edf2ee]">
+                          <div className={`h-full rounded-full ${i === 0 ? 'bg-[#466f56]' : i === 1 ? 'bg-[#98b6a0]' : i === 2 ? 'bg-[#4b7478]' : 'bg-[#c96868]'} ${width}`} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {reportOpen && (
+                  <div className="mt-7 border-t border-[#e1e8e3] pt-5">
+                    <p className="eyebrow">O que você encontra no relatório</p>
+                    <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                      {['Animal resgatado e foto', 'Localização e data', 'ONG ou protetor responsável', 'Estado de saúde e destino', 'Histórico de acompanhamento', 'Família ou lar definitivo'].map(item => (
+                        <span key={item} className="flex items-center gap-2 text-xs font-semibold text-[#66716a]">
+                          <Check size={14} className="text-[#466f56]" />{item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="site-shell mt-16 grid gap-3 border-t border-[#d5e2d8] pt-8 sm:grid-cols-3">
+          <div>
+            <p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">12.847</p>
+            <p className="mt-1 text-sm text-[#66716a]">cães protegidos pela rede</p>
+          </div>
+          <div>
+            <p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">143</p>
+            <p className="mt-1 text-sm text-[#66716a]">ONGs e protetores unidos</p>
+          </div>
+          <div>
+            <p className="font-display text-3xl font-extrabold tracking-tight text-[#27302b]">2.391</p>
+            <p className="mt-1 text-sm text-[#66716a]">reencontros e adoções</p>
+          </div>
+        </div>
       </section>
 
       <section id="comunidade" className="bg-[#f8faf7] py-24 lg:py-32"><div className="site-shell"><div className="grid gap-12 lg:grid-cols-[.75fr_1.25fr] lg:items-end"><div ref={communityLeft} className="reveal-left"><SectionLabel>Para quem faz a diferença</SectionLabel><h2 className="mt-5 max-w-md font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">Você já tem uma comunidade.<br /><span className="text-[#c96868]">Dê um caminho para ela agir.</span></h2></div><p ref={communityRight} className="reveal-right max-w-sm text-base leading-relaxed text-[#66716a]">O Helpers oferece a infraestrutura para transformar atenção em presença, intenção em ação e confiança em resultado.</p></div><div className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{roles.map(({ icon: Icon, title, text, color }) => <article key={title} className="rounded-3xl border border-[#e1e8e3] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(63,100,76,.08)]"><span className={`grid size-11 place-items-center rounded-2xl ${color}`}><Icon size={21} /></span><h3 className="mt-12 font-display text-xl font-extrabold tracking-tight text-[#27302b]">{title}</h3><p className="mt-2 text-sm leading-relaxed text-[#66716a]">{text}</p><a href="#inicio" className="mt-6 inline-flex items-center gap-1 text-xs font-bold text-[#466f56]" data-testid={`link-role-${title.toLowerCase().replaceAll(' ', '-')}`}>Saiba mais <ArrowRight size={14} /></a></article>)}</div><div className="mt-16 grid items-center gap-8 rounded-[2rem] bg-[#466f56] p-8 text-white sm:p-12 lg:grid-cols-[1fr_auto]"><div><p className="eyebrow text-white/60">Para criadores e marcas</p><h3 className="mt-4 max-w-xl font-display text-3xl font-extrabold leading-tight tracking-[-.04em] sm:text-4xl">Não peça para sua comunidade confiar. Mostre.</h3><p className="mt-4 max-w-lg text-sm leading-relaxed text-white/70">Cada resultado pode ser acompanhado publicamente — da primeira chamada ao último comprovante.</p></div><PrimaryButton onClick={() => setJoinOpen(true)} light testId="button-community-join">Quero conversar</PrimaryButton></div></div></section>
@@ -356,7 +435,7 @@ function Home() {
                 Cada etapa da operação — cadastro, campanha, destinação e prestação de contas — acontece em um fluxo único, visível para quem acompanha.
               </p>
             </div>
-            <div ref={ongRight} className="reveal-right mt-12 ong-phones-row">
+            <div ref={ongRight} className="reveal-right mt-12 ong-phones-row ong-phones-row-5">
               <PhoneMockup compact imageUrl={ONG_SCREEN_1} />
               <PhoneMockup compact imageUrl={ONG_SCREEN_2} />
               <PhoneMockup compact imageUrl={ONG_SCREEN_3} />

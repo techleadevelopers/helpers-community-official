@@ -323,11 +323,6 @@
     border-radius: 0.75rem;
     flex-shrink: 0;
   }
-
-  /* Hint de swipe — só aparece no mobile */
-  .swipe-hint {
-    display: none;
-  }
 }
 
 @keyframes rise-in {
@@ -489,75 +484,71 @@
   }
 
   /* ============================================================
-     MOCKUPS EM TELAS MENORES — EXPERIÊNCIA PREMIUM
-     Sem barra de rolagem visível + scroll-snap suave
+     FAN LAYOUT — 3 phones em leque (só mobile)
+     Desktop mantém todos os phones lado a lado.
      ============================================================ */
-  .ong-phones-row {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-inline: 20px;
-    padding-bottom: 0.75rem;
-    margin-inline: -20px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-
+  .ong-phones-row.phones-fan {
+    display: block !important;
+    position: relative !important;
+    gap: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 auto !important;
+    margin-inline: auto !important;
+    scroll-snap-type: none !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: 440px !important;
   }
-  .ong-phones-row::-webkit-scrollbar {
+  .ong-phones-row.phones-fan::-webkit-scrollbar {
     display: none;
     width: 0;
     height: 0;
-    background: transparent;
   }
 
-  .ong-phones-row > * {
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    flex-shrink: 0;
+  .ong-phones-row.phones-fan > .fan-item {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    flex: none !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+    transition: transform 0.75s cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+    transform-origin: center center;
   }
 
-  .ong-phones-row::before,
-  .ong-phones-row::after {
-    content: '';
-    flex: 0 0 4px;
+  /* Phone esquerdo — inclinado pra trás, atrás do centro */
+  .ong-phones-row.phones-fan > .fan-item:nth-child(1) {
+    transform: translate(-50%, -50%) translateX(-45px) rotate(-14deg) scale(0.72);
+    z-index: 1;
+    opacity: 0.95;
   }
 
-  .ong-phones-row:not(.ong-phones-row-5) {
-    padding-inline: 28px;
-    margin-inline: -28px;
+  /* Phone central — reto, maior, na frente */
+  .ong-phones-row.phones-fan > .fan-item:nth-child(2) {
+    transform: translate(-50%, -50%) translateX(0) rotate(0deg) scale(0.88);
+    z-index: 3;
   }
 
-  .ong-phones-row-5 {
-    padding-inline: 24px;
-    margin-inline: -24px;
-    gap: 0.65rem;
+  /* Phone direito — inclinado pra trás, atrás do centro */
+  .ong-phones-row.phones-fan > .fan-item:nth-child(3) {
+    transform: translate(-50%, -50%) translateX(45px) rotate(14deg) scale(0.72);
+    z-index: 2;
+    opacity: 0.95;
   }
 
-  /* ============================================================
-     SWIPE HINT — micro texto com fade suave (só mobile)
-     ============================================================ */
-  .swipe-hint {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    margin: 0.25rem auto 0.75rem;
-    font-family: var(--app-font-mono);
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #7f8d84;
-    user-select: none;
-    pointer-events: none;
-    animation: swipe-hint-fade 2.8s ease-in-out infinite;
-  }
-  .swipe-hint svg {
-    animation: swipe-hint-arrow 2.8s ease-in-out infinite;
+  /* Esconde o 4º e 5º phone no mobile */
+  .ong-phones-row.phones-fan > .fan-item:nth-child(n+4) {
+    display: none !important;
   }
 
   /* 4 passos do app viram 2 colunas no mobile */
@@ -708,16 +699,4 @@
   footer .site-shell > div:last-child span {
     font-size: 0.6rem !important;
   }
-}
-
-/* ============================================================
-   ANIMAÇÕES DO SWIPE HINT
-   ============================================================ */
-@keyframes swipe-hint-fade {
-  0%, 100% { opacity: 0.35; }
-  50%      { opacity: 1; }
-}
-@keyframes swipe-hint-arrow {
-  0%, 100% { transform: translateX(0); }
-  50%      { transform: translateX(4px); }
 }

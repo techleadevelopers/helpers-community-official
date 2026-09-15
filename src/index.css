@@ -177,6 +177,27 @@
     display: none;
   }
 
+  /* ============================================================
+     NOVA IMAGEM — acima do mockup do celular (hero)
+     Pequena, centralizada, logo antes do telefone.
+     ============================================================ */
+  .hero-above-phone-image {
+    display: block;
+    width: 96px;
+    height: auto;
+    margin: 0 auto 0.75rem auto;
+    pointer-events: none;
+    user-select: none;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(63, 100, 76, 0.18));
+  }
+  @media (min-width: 1024px) {
+    .hero-above-phone-image {
+      width: 108px;
+      margin-bottom: 1rem;
+    }
+  }
+
   .hero-background {
     background-image: url('https://res.cloudinary.com/limpeja/image/upload/v1789344513/Design_sem_nome_rbl8gk.png');
     background-size: cover;
@@ -415,6 +436,14 @@
   .hero-cta-row > * svg {
     width: 0.9rem !important;
     height: 0.9rem !important;
+  }
+
+  /* ============================================================
+     NOVA IMAGEM acima do mockup — versão mobile
+     ============================================================ */
+  .hero-above-phone-image {
+    width: 78px !important;
+    margin: 0 auto 0.5rem auto !important;
   }
 
   .hero-corner-image {

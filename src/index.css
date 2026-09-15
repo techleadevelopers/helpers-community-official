@@ -323,6 +323,11 @@
     border-radius: 0.75rem;
     flex-shrink: 0;
   }
+
+  /* Hint de swipe — só aparece no mobile */
+  .swipe-hint {
+    display: none;
+  }
 }
 
 @keyframes rise-in {
@@ -396,6 +401,29 @@
     padding-bottom: 120px !important;
   }
 
+  /* ============================================================
+     HERO — 2 botões lado a lado (só mobile), tamanho reduzido
+     ============================================================ */
+  .hero-cta-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+  .hero-cta-row > * {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.7rem 0.85rem !important;
+    font-size: 0.76rem !important;
+    gap: 0.35rem !important;
+    white-space: nowrap !important;
+  }
+  .hero-cta-row > * svg {
+    width: 0.85rem !important;
+    height: 0.85rem !important;
+  }
+
   .hero-corner-image {
     display: block;
     position: absolute;
@@ -461,23 +489,21 @@
   }
 
   /* ============================================================
-     MOCKUPS EM TELAS MENORES — CARROSSEL 1 TELA + SETAS + DOTS
+     MOCKUPS EM TELAS MENORES — EXPERIÊNCIA PREMIUM
+     Sem barra de rolagem visível + scroll-snap suave
      ============================================================ */
-  .phones-carousel {
-    position: relative;
-    width: 100%;
-  }
-
   .ong-phones-row {
     display: flex;
-    gap: 0;
+    gap: 0.75rem;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0;
-    margin: 0;
+    padding-inline: 20px;
+    padding-bottom: 0.75rem;
+    margin-inline: -20px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -488,72 +514,50 @@
     background: transparent;
   }
 
-  /* 1 tela por vez, centralizada */
   .ong-phones-row > * {
-    flex: 0 0 100%;
     scroll-snap-align: center;
     scroll-snap-stop: always;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-shrink: 0;
   }
 
-  /* Setas laterais */
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(70, 111, 86, 0.14);
-    box-shadow: 0 4px 18px rgba(39, 48, 43, 0.14);
-    color: #466f56;
-    cursor: pointer;
-    transition: opacity 0.28s ease, transform 0.28s ease, background 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
+  .ong-phones-row::before,
+  .ong-phones-row::after {
+    content: '';
+    flex: 0 0 4px;
   }
-  .carousel-arrow:active {
-    transform: translateY(-50%) scale(0.9);
-    background: #eaf0ec;
+
+  .ong-phones-row:not(.ong-phones-row-5) {
+    padding-inline: 28px;
+    margin-inline: -28px;
   }
-  .carousel-arrow[disabled],
-  .carousel-arrow.is-hidden {
-    opacity: 0;
+
+  .ong-phones-row-5 {
+    padding-inline: 24px;
+    margin-inline: -24px;
+    gap: 0.65rem;
+  }
+
+  /* ============================================================
+     SWIPE HINT — micro texto com fade suave (só mobile)
+     ============================================================ */
+  .swipe-hint {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0.25rem auto 0.75rem;
+    font-family: var(--app-font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7f8d84;
+    user-select: none;
     pointer-events: none;
+    animation: swipe-hint-fade 2.8s ease-in-out infinite;
   }
-  .carousel-arrow.prev { left: 4px; }
-  .carousel-arrow.next { right: 4px; }
-
-  /* Dots indicadores */
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    margin-top: 1.1rem;
-    padding: 0;
-  }
-  .carousel-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: #d5e2d8;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(.2,.8,.2,1);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .carousel-dot.active {
-    width: 24px;
-    background: #466f56;
+  .swipe-hint svg {
+    animation: swipe-hint-arrow 2.8s ease-in-out infinite;
   }
 
   /* 4 passos do app viram 2 colunas no mobile */
@@ -704,4 +708,16 @@
   footer .site-shell > div:last-child span {
     font-size: 0.6rem !important;
   }
+}
+
+/* ============================================================
+   ANIMAÇÕES DO SWIPE HINT
+   ============================================================ */
+@keyframes swipe-hint-fade {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+@keyframes swipe-hint-arrow {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
 }

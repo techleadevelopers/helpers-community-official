@@ -423,6 +423,7 @@
      BEIJA-FLOR — MOBILE
      1) Esconde o beija-flor que fica acima do mockup
      2) Mostra o beija-flor inline, na mesma linha dos avatares
+     3) +15% no tamanho (34px -> 39px) sem empurrar o bloco ao lado
      ============================================================ */
   .hero-above-phone-image {
     display: none !important;
@@ -430,12 +431,17 @@
 
   .hero-bird-inline {
     display: block !important;
-    width: 34px !important;
-    height: 34px !important;
+    width: 39px !important;
+    height: 39px !important;
     object-fit: contain;
     flex-shrink: 0;
-    margin-right: -2px;
-    margin-top: -6px;
+    /* posiciona visualmente sem interferir no fluxo do bloco ao lado */
+    position: relative;
+    z-index: 2;
+    transform: translateZ(0);
+    margin-right: -6px;
+    margin-top: -8px;
+    margin-left: -2px;
     pointer-events: none;
     user-select: none;
     filter: drop-shadow(0 3px 6px rgba(63, 100, 76, 0.18));

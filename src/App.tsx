@@ -47,14 +47,8 @@ const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 
 const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789352958/ChatGPT_Image_13_de_set._de_2026_23_20_41_ceqys7.png';
 
-// ============================================================
-// TELAS DO FLUXO DO USUÁRIO (4 telas)
-// ============================================================
 const MAPS_SCREEN   = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
 
-// ============================================================
-// TELAS DO FLUXO DA ONG (5 telas)
-// ============================================================
 const ONG_SCREEN_1  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433386/WhatsApp_Image_2026-09-14_at_21.15.33_cjason.jpg';
 const ONG_SCREEN_2  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433385/WhatsApp_Image_2026-09-14_at_21.15.31_aulytg.jpg';
 const ONG_SCREEN_3  = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
@@ -253,7 +247,7 @@ function Home() {
     <main>
       <section id="inicio" className="hero-background relative overflow-hidden pt-[76px]">
         <div className="site-shell grid min-h-[680px] items-center gap-16 py-20 lg:grid-cols-[1fr_470px] lg:gap-10 lg:py-24">
-          <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>REDE DE PROTEÇÃO ANIMAL</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">A comunidade que protege <span className="text-[#466f56]">quem não pode pedir ajuda.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos para transformar atenção em ação — e ação em proteção real.</p><div className="mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Quero ser um Helper</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3"><div className="flex -space-x-2">
+          <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>REDE DE PROTEÇÃO ANIMAL</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">A comunidade que protege <span className="text-[#466f56]">quem não pode pedir ajuda.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos para transformar atenção em ação — e ação em proteção real.</p><div className="hero-cta-row mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Quero ser um Helper</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3"><div className="flex -space-x-2">
   <span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#d4e2d8] overflow-hidden">
     <img src="https://res.cloudinary.com/limpeja/image/upload/v1789338319/WhatsApp_Image_2026-09-13_at_19.23.41_1_uqcoci.jpg" alt="Avatar" className="h-full w-full object-cover" />
   </span>
@@ -400,7 +394,6 @@ function Home() {
             <h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">A ajuda começa onde você está.</h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[#66716a]">Uma experiência simples para momentos que importam. Feita para você encontrar, agir e acompanhar — sem perder o fio da história.</p>
 
-            {/* 4 passos em linha */}
             <div className="app-steps-row">
               {appSteps.map(({ icon: Icon, title, text }, i) => (
                 <div key={title} className="app-step">
@@ -417,7 +410,8 @@ function Home() {
           </div>
 
           {/* 4 telas alinhadas abaixo */}
-          <div ref={productRight} className="reveal-right mt-14 lg:mt-16 ong-phones-row">
+          <p className="swipe-hint">Passe para o lado <ArrowRight size={13} /></p>
+          <div ref={productRight} className="reveal-right mt-2 lg:mt-16 ong-phones-row">
             <PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} />
             <PhoneMockup compact imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} />
             <PhoneMockup compact imageUrl={SCREEN_ALT_3} pulseTrigger={productPulse} />
@@ -435,7 +429,8 @@ function Home() {
                 Cada etapa da operação — cadastro, campanha, destinação e prestação de contas — acontece em um fluxo único, visível para quem acompanha.
               </p>
             </div>
-            <div ref={ongRight} className="reveal-right mt-12 ong-phones-row ong-phones-row-5">
+            <p className="swipe-hint">Passe para o lado <ArrowRight size={13} /></p>
+            <div ref={ongRight} className="reveal-right mt-2 ong-phones-row ong-phones-row-5">
               <PhoneMockup compact imageUrl={ONG_SCREEN_1} />
               <PhoneMockup compact imageUrl={ONG_SCREEN_2} />
               <PhoneMockup compact imageUrl={ONG_SCREEN_3} />

@@ -45,7 +45,10 @@ const COMMUNITY_PHOTO_2 = 'https://res.cloudinary.com/limpeja/image/upload/v1789
 const COMMUNITY_PHOTO_3 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346973/WhatsApp_Image_2026-09-13_at_21.44.43_nw0wrg.jpg';
 const COMMUNITY_PHOTO_4 = 'https://res.cloudinary.com/limpeja/image/upload/v1789346972/WhatsApp_Image_2026-09-13_at_21.40.45_1_w1fiwn.jpg';
 
-const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789352958/ChatGPT_Image_13_de_set._de_2026_23_20_41_ceqys7.png';
+const HERO_CORNER_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789514839/Gemini_Generated_Image_e51yvze51yvze51y-Photoroom_ehxs7g.png';
+
+/* >>> NOVA IMAGEM: acima do mockup do celular (hero) <<< */
+const HERO_ABOVE_PHONE_IMAGE = 'https://res.cloudinary.com/limpeja/image/upload/v1789514842/image-Photoroom_3_mqh1ej.png';
 
 const MAPS_SCREEN   = 'https://res.cloudinary.com/limpeja/image/upload/v1789433389/ChatGPT_Image_14_de_set._de_2026_21_49_00_hf3ihy.png';
 
@@ -258,7 +261,16 @@ function Home() {
     <img src="https://res.cloudinary.com/limpeja/image/upload/v1789338510/ChatGPT_Image_13_de_set._de_2026_19_28_12_ssall4.png" alt="Avatar" className="h-full w-full object-cover" />
   </span>
 </div><p className="text-xs text-[#66716a]"><strong className="text-[#27302b]">1.842 pessoas</strong> já fazem parte<br />dessa conversa.</p></div></div>
-          <div ref={heroRight} className="reveal-right relative z-10 flex justify-center lg:justify-end"><div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div></div>
+          <div ref={heroRight} className="reveal-right relative z-10 flex flex-col items-center justify-center lg:justify-end">
+            {/* >>> IMAGEM ACIMA DO MOCKUP (pequena) <<< */}
+            <img
+              src={HERO_ABOVE_PHONE_IMAGE}
+              alt=""
+              aria-hidden="true"
+              className="hero-above-phone-image"
+            />
+            <div className="float-device rounded-[2.7rem] bg-[#dce8df] p-4"><PhoneMockup imageUrls={[SCREEN_MAIN, SCREEN_ALT_1, SCREEN_ALT_2, SCREEN_ALT_3]} interval={3500} /></div>
+          </div>
         </div>
         <img
           src={HERO_CORNER_IMAGE}

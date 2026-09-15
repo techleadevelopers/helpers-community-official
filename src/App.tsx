@@ -388,7 +388,6 @@ function Home() {
 
       <section id="produto" className="product-background relative overflow-hidden py-24 lg:py-32">
         <div className="site-shell">
-          {/* ===== FLUXO DO USUÁRIO ===== */}
           <div ref={productLeft} className="reveal-left max-w-3xl">
             <SectionLabel>O aplicativo</SectionLabel>
             <h2 className="mt-5 max-w-lg font-display text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-[#27302b] sm:text-5xl">A ajuda começa onde você está.</h2>
@@ -409,7 +408,6 @@ function Home() {
             </div>
           </div>
 
-          {/* 4 telas alinhadas — no mobile vira leque de 3 */}
           <div ref={productRight} className="reveal-right mt-14 lg:mt-16 ong-phones-row phones-fan">
             <div className="fan-item"><PhoneMockup compact imageUrl={SCREEN_ALT_1} pulseTrigger={productPulse} /></div>
             <div className="fan-item"><PhoneMockup compact imageUrl={SCREEN_ALT_2} pulseTrigger={productPulse} /></div>
@@ -417,7 +415,6 @@ function Home() {
             <div className="fan-item"><PhoneMockup compact imageUrl={MAPS_SCREEN} pulseTrigger={productPulse} /></div>
           </div>
 
-          {/* ===== NOVA SUB-SEÇÃO: FLUXO DA ONG ===== */}
           <div className="mt-24 lg:mt-32">
             <div ref={ongLeft} className="reveal-left max-w-2xl">
               <SectionLabel>Fluxo da ONG</SectionLabel>

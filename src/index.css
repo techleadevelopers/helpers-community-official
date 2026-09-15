@@ -460,10 +460,57 @@
     overflow-wrap: break-word !important;
   }
 
-  /* Telas em linha (ONG + O aplicativo) no mobile ficam em carrossel horizontal */
+  /* ============================================================
+     MOCKUPS EM TELAS MENORES — EXPERIÊNCIA PREMIUM
+     Sem barra de rolagem visível + scroll-snap suave
+     ============================================================ */
   .ong-phones-row {
-    padding-inline: 4px;
-    justify-content: flex-start;
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-inline: 20px;
+    padding-bottom: 0.75rem;
+    margin-inline: -20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    /* Esconde a barra de rolagem em todos os browsers */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .ong-phones-row::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  .ong-phones-row > * {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    flex-shrink: 0;
+  }
+
+  /* Indicador sutil de "arraste para o lado" (fade nas bordas) */
+  .ong-phones-row::before,
+  .ong-phones-row::after {
+    content: '';
+    flex: 0 0 4px;
+  }
+
+  /* Seção das 4 telas do app: mostra 1,5 telas (efeito peek premium) */
+  .ong-phones-row:not(.ong-phones-row-5) {
+    padding-inline: 28px;
+    margin-inline: -28px;
+  }
+
+  /* Seção das 5 telas da ONG: peek mais generoso pra navegação confortável */
+  .ong-phones-row-5 {
+    padding-inline: 24px;
+    margin-inline: -24px;
+    gap: 0.65rem;
   }
 
   /* 4 passos do app viram 2 colunas no mobile */

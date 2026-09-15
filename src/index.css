@@ -178,8 +178,9 @@
   }
 
   /* ============================================================
-     NOVA IMAGEM — acima do mockup do celular (hero)
-     Pequena, centralizada, logo antes do telefone.
+     BEIJA-FLOR — DESKTOP
+     Fica acima do mockup do celular (hero), centralizado.
+     No mobile ele é escondido e reaparece inline (ver @media).
      ============================================================ */
   .hero-above-phone-image {
     display: block;
@@ -196,6 +197,11 @@
       width: 108px;
       margin-bottom: 1rem;
     }
+  }
+
+  /* Beija-flor inline — escondido no desktop, só aparece no mobile */
+  .hero-bird-inline {
+    display: none;
   }
 
   .hero-background {
@@ -414,6 +420,28 @@
   }
 
   /* ============================================================
+     BEIJA-FLOR — MOBILE
+     1) Esconde o beija-flor que fica acima do mockup
+     2) Mostra o beija-flor inline, na mesma linha dos avatares
+     ============================================================ */
+  .hero-above-phone-image {
+    display: none !important;
+  }
+
+  .hero-bird-inline {
+    display: block !important;
+    width: 34px !important;
+    height: 34px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-right: -2px;
+    margin-top: -6px;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 3px 6px rgba(63, 100, 76, 0.18));
+  }
+
+  /* ============================================================
      HERO CTA — empilhado (mobile): botão em cima, link abaixo
      ============================================================ */
   .hero-cta-row {
@@ -436,14 +464,6 @@
   .hero-cta-row > * svg {
     width: 0.9rem !important;
     height: 0.9rem !important;
-  }
-
-  /* ============================================================
-     NOVA IMAGEM acima do mockup — versão mobile
-     ============================================================ */
-  .hero-above-phone-image {
-    width: 78px !important;
-    margin: 0 auto 0.5rem auto !important;
   }
 
   .hero-corner-image {

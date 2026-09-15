@@ -271,9 +271,6 @@
     transform: translateX(0);
   }
 
-  /* =========================================================
-     Sub-seções com telas em linha (ONG + O aplicativo)
-     ========================================================= */
   .ong-phones-row {
     display: flex;
     gap: 1rem;
@@ -297,7 +294,6 @@
     }
   }
 
-  /* --- 4 passos do app em linha horizontal --- */
   .app-steps-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -396,9 +392,6 @@
     padding-bottom: 120px !important;
   }
 
-  /* ============================================================
-     HERO — 2 botões lado a lado (só mobile), tamanho reduzido
-     ============================================================ */
   .hero-cta-row {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -485,7 +478,6 @@
 
   /* ============================================================
      FAN LAYOUT — 3 phones em leque (só mobile)
-     Desktop mantém todos os phones lado a lado.
      ============================================================ */
   .ong-phones-row.phones-fan {
     display: block !important;
@@ -500,7 +492,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     width: 100% !important;
-    max-width: 340px !important;
+    max-width: 100% !important;
     height: 440px !important;
   }
   .ong-phones-row.phones-fan::-webkit-scrollbar {
@@ -526,9 +518,9 @@
     transform-origin: center center;
   }
 
-  /* Phone esquerdo — inclinado pra trás, atrás do centro */
+  /* Phone esquerdo — mais pra fora, menos inclinado */
   .ong-phones-row.phones-fan > .fan-item:nth-child(1) {
-    transform: translate(-50%, -50%) translateX(-45px) rotate(-14deg) scale(0.72);
+    transform: translate(-50%, -50%) translateX(-90px) rotate(-10deg) scale(0.72);
     z-index: 1;
     opacity: 0.95;
   }
@@ -539,9 +531,9 @@
     z-index: 3;
   }
 
-  /* Phone direito — inclinado pra trás, atrás do centro */
+  /* Phone direito — mais pra fora, menos inclinado */
   .ong-phones-row.phones-fan > .fan-item:nth-child(3) {
-    transform: translate(-50%, -50%) translateX(45px) rotate(14deg) scale(0.72);
+    transform: translate(-50%, -50%) translateX(90px) rotate(10deg) scale(0.72);
     z-index: 2;
     opacity: 0.95;
   }
@@ -551,7 +543,6 @@
     display: none !important;
   }
 
-  /* 4 passos do app viram 2 colunas no mobile */
   .app-steps-row {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 1rem !important;

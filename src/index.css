@@ -413,8 +413,12 @@
     letter-spacing: -0.035em !important;
   }
 
+  /* ============================================================
+     ESPAÇO ENTRE O HEADER E O CONTEÚDO (mobile)
+     padding-top do hero = altura do header + respiro
+     ============================================================ */
   #inicio {
-    padding-top: 76px !important;
+    padding-top: 120px !important;
     padding-bottom: 120px !important;
   }
 

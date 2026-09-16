@@ -231,7 +231,6 @@ function Home() {
     { icon: PawPrint, title: 'Protetores', text: 'Encontre ajuda próxima e organize resgates com mais gente.', color: 'bg-[#edf2ee] text-[#466f56]' },
     { icon: Landmark, title: 'ONGs e projetos', text: 'Receba apoio e mantenha cada resultado visível para todos.', color: 'bg-[#fff1f0] text-[#c96868]' },
     { icon: Megaphone, title: 'Criadores', text: 'Mobilize sua audiência para ações que acontecem de verdade.', color: 'bg-[#f8efe7] text-[#a86d46]' },
-    /* CORRIGIDO: era um .replace() inline que quebrava o Tailwind */
     { icon: UsersRound, title: 'Voluntários', text: 'Descubra onde sua ajuda faz mais diferença hoje.', color: 'bg-[#e9f1f2] text-[#4b7478]' },
   ];
   const faqs = [
@@ -252,14 +251,29 @@ function Home() {
       <section id="inicio" className="hero-background relative overflow-hidden pt-[76px]">
         <div className="site-shell grid min-h-[680px] items-center gap-16 py-20 lg:grid-cols-[1fr_470px] lg:gap-10 lg:py-24">
           <div ref={heroLeft} className="reveal-left relative z-10 max-w-[620px]"><SectionLabel>REDE DE PROTEÇÃO ANIMAL</SectionLabel><h1 className="mt-6 font-display text-[clamp(3.3rem,7vw,5rem)] font-extrabold leading-[.93] tracking-[-.075em] text-[#27302b]">A comunidade que protege <span className="text-[#466f56]">quem não pode pedir ajuda.</span></h1><p className="mt-7 max-w-[500px] text-[17px] leading-[1.6] text-[#66716a]">O Helpers conecta pessoas, protetores, ONGs e projetos para transformar atenção em ação — e ação em proteção real.</p><div className="hero-cta-row mt-9 flex flex-wrap items-center gap-4"><PrimaryButton onClick={() => setJoinOpen(true)} testId="button-hero-join">Quero ser um Helper</PrimaryButton><a href="#impacto" className="group inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-bold text-[#466f56]" data-testid="link-hero-impact">Conheça a proposta <ArrowDownRight size={17} className="transition-transform group-hover:translate-y-1" /></a></div><div className="mt-14 flex items-center gap-3">
-  {/* Beija-flor inline — visível apenas no mobile, antes dos micro avatares.
-      style inline garante o tamanho, imune a CSS externo. */}
+  {/* Beija-flor inline — 60px forçado via style inline, imune a CSS externo */}
   <img
     src={HERO_ABOVE_PHONE_IMAGE}
     alt=""
     aria-hidden="true"
-    className="hero-bird-inline"
-    style={{ width: '41px', height: '41px', minWidth: '41px', minHeight: '41px', maxWidth: '41px', maxHeight: '41px' }}
+    style={{
+      width: '60px',
+      height: '60px',
+      minWidth: '60px',
+      minHeight: '60px',
+      maxWidth: '60px',
+      maxHeight: '60px',
+      objectFit: 'contain',
+      flexShrink: 0,
+      marginTop: '-6px',
+      marginBottom: '-6px',
+      marginLeft: '-8px',
+      marginRight: '-8px',
+      position: 'relative',
+      zIndex: 3,
+      pointerEvents: 'none',
+      filter: 'drop-shadow(0 4px 8px rgba(63,100,76,0.22))',
+    }}
   />
   <div className="flex -space-x-2">
   <span className="grid size-8 place-items-center rounded-full border-2 border-[#f8faf7] bg-[#d4e2d8] overflow-hidden">

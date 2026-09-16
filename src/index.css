@@ -369,11 +369,11 @@
 
 /* ============================================================
    ANIMAÇÃO DE FLUTUAÇÃO DO BEIJA-FLOR (mobile)
-   O scale(1.2) fica DENTRO do keyframe pra não ser sobrescrito.
+   Só translate/rotate — o TAMANHO é definido via width/height.
    ============================================================ */
 @keyframes bird-float {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1.2); }
-  50%      { transform: translateY(-6px) rotate(-3deg) scale(1.2); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-6px) rotate(-3deg); }
 }
 
 .float-device { animation: float-device 6s ease-in-out infinite; }
@@ -422,27 +422,39 @@
     padding-bottom: 120px !important;
   }
 
-  .hero-above-phone-image {
-    display: none !important;
+  /* ============================================================
+     MARGEM SUPERIOR LEVE ACIMA DE "REDE DE PROTEÇÃO ANIMAL"
+     (só no mobile)
+     ============================================================ */
+  #inicio .eyebrow:first-of-type {
+    margin-top: 14px !important;
   }
 
   /* ============================================================
      BEIJA-FLOR — MOBILE
-     - 20% maior: o scale(1.2) vive no keyframe bird-float
-     - width/height de 34px reservam o espaço no fluxo
+     - 20% MAIOR de verdade: width/height 34px -> 41px
+     - Margens negativas absorvem o crescimento (7px)
        → NÃO empurra nada ao redor
-     - Flutua suavemente
+     - Flutua suavemente (só translate/rotate)
      ============================================================ */
+  .hero-above-phone-image {
+    display: none !important;
+  }
+
   .hero-bird-inline {
     display: block !important;
-    width: 34px !important;
-    height: 34px !important;
+    width: 41px !important;    /* 34 × 1.2 = 40.8 ≈ 41px */
+    height: 41px !important;
+    /* absorve o crescimento: (41-34)/2 = 3.5px por lado */
+    margin-top: -3px !important;
+    margin-bottom: -3px !important;
+    margin-left: -4px !important;
+    margin-right: -4px !important;
     position: relative;
     z-index: 3;
     flex-shrink: 0;
     pointer-events: none;
     user-select: none;
-    margin: 0 !important;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(63, 100, 76, 0.22));
     animation: bird-float 2.8s ease-in-out infinite;
@@ -450,6 +462,9 @@
     transform-origin: center center;
   }
 
+  /* ============================================================
+     HERO CTA — empilhado (mobile): botão em cima, link abaixo
+     ============================================================ */
   .hero-cta-row {
     display: flex !important;
     flex-direction: column !important;

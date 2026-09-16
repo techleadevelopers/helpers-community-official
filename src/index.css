@@ -177,6 +177,9 @@
     display: none;
   }
 
+  /* ============================================================
+     BEIJA-FLOR — DESKTOP (acima do mockup, só ≥ 768px)
+     ============================================================ */
   .hero-above-phone-image {
     display: block;
     width: 96px;
@@ -194,6 +197,7 @@
     }
   }
 
+  /* beija-flor inline: escondido por padrão (só aparece no mobile via @media abaixo) */
   .hero-bird-inline {
     display: none;
   }
@@ -367,10 +371,7 @@
   display: inline-block;
 }
 
-/* ============================================================
-   ANIMAÇÃO DE FLUTUAÇÃO DO BEIJA-FLOR (mobile)
-   Só translate/rotate — o TAMANHO é definido via width/height.
-   ============================================================ */
+/* Animação de flutuação do beija-flor — só translate/rotate */
 @keyframes bird-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50%      { transform: translateY(-6px) rotate(-3deg); }
@@ -387,6 +388,10 @@
 .soft-shadow { box-shadow: var(--shadow-md); }
 .phone-shadow { box-shadow: 22px 28px 60px hsl(144 25% 25% / .16), 0 0 0 1px hsl(144 25% 25% / .08); }
 
+/* ============================================================
+   MOBILE — TUDO DO BEIJA-FLOR E DO RÓTULO VIVE AQUI DENTRO.
+   Nada disso sai pra outras larguras.
+   ============================================================ */
 @media (max-width: 767px) {
   .site-shell { width: min(100% - 32px, 620px); }
   .hide-mobile { display: none; }
@@ -422,20 +427,16 @@
     padding-bottom: 120px !important;
   }
 
-  /* ============================================================
-     MARGEM SUPERIOR LEVE ACIMA DE "REDE DE PROTEÇÃO ANIMAL"
-     (só no mobile)
-     ============================================================ */
+  /* === MARGEM SUPERIOR LEVE no rótulo "REDE DE PROTEÇÃO ANIMAL" (só mobile) === */
   #inicio .eyebrow:first-of-type {
     margin-top: 14px !important;
   }
 
   /* ============================================================
-     BEIJA-FLOR — MOBILE
+     BEIJA-FLOR INLINE — só mobile
      - 20% MAIOR de verdade: width/height 34px -> 41px
-     - Margens negativas absorvem o crescimento (7px)
-       → NÃO empurra nada ao redor
-     - Flutua suavemente (só translate/rotate)
+     - margens negativas absorvem o crescimento → NÃO empurra nada
+     - flutua suavemente
      ============================================================ */
   .hero-above-phone-image {
     display: none !important;
@@ -443,9 +444,13 @@
 
   .hero-bird-inline {
     display: block !important;
-    width: 41px !important;    /* 34 × 1.2 = 40.8 ≈ 41px */
+    width: 41px !important;
     height: 41px !important;
-    /* absorve o crescimento: (41-34)/2 = 3.5px por lado */
+    min-width: 41px !important;
+    min-height: 41px !important;
+    max-width: 41px !important;
+    max-height: 41px !important;
+    /* absorve o crescimento (41-34)/2 ≈ 3.5px por lado */
     margin-top: -3px !important;
     margin-bottom: -3px !important;
     margin-left: -4px !important;
@@ -463,7 +468,7 @@
   }
 
   /* ============================================================
-     HERO CTA — empilhado (mobile): botão em cima, link abaixo
+     HERO CTA — empilhado (mobile)
      ============================================================ */
   .hero-cta-row {
     display: flex !important;
@@ -551,6 +556,7 @@
     overflow-wrap: break-word !important;
   }
 
+  /* === FAN LAYOUT — 3 phones em leque (só mobile) === */
   .ong-phones-row.phones-fan {
     display: block !important;
     position: relative !important;

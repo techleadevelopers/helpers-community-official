@@ -177,20 +177,30 @@
     display: none;
   }
 
+  /* ============================================================
+     BEIJA-FLOR ACIMA DO MOCKUP — DESKTOP (telas grandes)
+     Fica na mesma linha do celular, mas 50% mais pra esquerda
+     (ao lado esquerdo do mockup), via position absolute.
+     ============================================================ */
   .hero-above-phone-image {
     display: block;
     width: 96px;
     height: auto;
-    margin: 0 auto 0.75rem auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    margin: 0;
     pointer-events: none;
     user-select: none;
     object-fit: contain;
     filter: drop-shadow(0 8px 18px rgba(63, 100, 76, 0.18));
+    z-index: 2;
   }
   @media (min-width: 1024px) {
     .hero-above-phone-image {
       width: 108px;
-      margin-bottom: 1rem;
+      left: -10%;
     }
   }
 
@@ -413,10 +423,6 @@
     letter-spacing: -0.035em !important;
   }
 
-  /* ============================================================
-     ESPAÇO ENTRE O HEADER E O CONTEÚDO (mobile)
-     padding-top do hero = altura do header + respiro
-     ============================================================ */
   #inicio {
     padding-top: 120px !important;
     padding-bottom: 120px !important;
@@ -476,11 +482,6 @@
     height: 0.9rem !important;
   }
 
-  /* ============================================================
-     IMAGEM DO CANTO (HERO_CORNER_IMAGE) — MOBILE
-     40% maior: 116px × 1.4 = 162px
-     position: absolute → NÃO empurra nada
-     ============================================================ */
   .hero-corner-image {
     display: block !important;
     position: absolute !important;

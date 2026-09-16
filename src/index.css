@@ -177,11 +177,6 @@
     display: none;
   }
 
-  /* ============================================================
-     BEIJA-FLOR — DESKTOP
-     Fica acima do mockup do celular (hero), centralizado.
-     No mobile ele é escondido e reaparece inline (ver @media).
-     ============================================================ */
   .hero-above-phone-image {
     display: block;
     width: 96px;
@@ -199,7 +194,6 @@
     }
   }
 
-  /* Beija-flor inline — escondido no desktop, só aparece no mobile */
   .hero-bird-inline {
     display: none;
   }
@@ -375,11 +369,11 @@
 
 /* ============================================================
    ANIMAÇÃO DE FLUTUAÇÃO DO BEIJA-FLOR (mobile)
-   Ele sobe/desce suavemente sem alterar o layout ao redor.
+   O scale(1.2) fica DENTRO do keyframe pra não ser sobrescrito.
    ============================================================ */
 @keyframes bird-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-6px) rotate(-3deg); }
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1.2); }
+  50%      { transform: translateY(-6px) rotate(-3deg) scale(1.2); }
 }
 
 .float-device { animation: float-device 6s ease-in-out infinite; }
@@ -428,49 +422,34 @@
     padding-bottom: 120px !important;
   }
 
-  /* ============================================================
-     BEIJA-FLOR — MOBILE
-     - Escondido o beija-flor que fica acima do mockup
-     - Mostrado inline na mesma linha dos avatares
-     - 20% MAIOR via transform: scale(1.2) — NÃO empurra nada
-     - Flutuando suavemente com a animação bird-float
-     ============================================================ */
   .hero-above-phone-image {
     display: none !important;
   }
 
+  /* ============================================================
+     BEIJA-FLOR — MOBILE
+     - 20% maior: o scale(1.2) vive no keyframe bird-float
+     - width/height de 34px reservam o espaço no fluxo
+       → NÃO empurra nada ao redor
+     - Flutua suavemente
+     ============================================================ */
   .hero-bird-inline {
     display: block !important;
-
-    /* tamanho base reservado no fluxo (não muda) */
     width: 34px !important;
     height: 34px !important;
-
-    /* 20% MAIOR sem empurrar ninguém */
-    transform: scale(1.2) translateZ(0);
-    transform-origin: center center;
-
-    /* garante que fique sobreposto, sem afetar layout */
     position: relative;
     z-index: 3;
     flex-shrink: 0;
     pointer-events: none;
     user-select: none;
-
-    /* sem margin — zero interferência */
     margin: 0 !important;
-
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(63, 100, 76, 0.22));
-
-    /* flutuação contínua */
     animation: bird-float 2.8s ease-in-out infinite;
     will-change: transform;
+    transform-origin: center center;
   }
 
-  /* ============================================================
-     HERO CTA — empilhado (mobile): botão em cima, link abaixo
-     ============================================================ */
   .hero-cta-row {
     display: flex !important;
     flex-direction: column !important;
@@ -557,9 +536,6 @@
     overflow-wrap: break-word !important;
   }
 
-  /* ============================================================
-     FAN LAYOUT — 3 phones em leque (só mobile)
-     ============================================================ */
   .ong-phones-row.phones-fan {
     display: block !important;
     position: relative !important;
@@ -724,9 +700,6 @@
     height: 0.6rem !important;
   }
 
-  /* ============================================================
-     FOOTER — versão mobile compacta
-     ============================================================ */
   footer {
     padding-top: 1.75rem !important;
     padding-bottom: 1.5rem !important;

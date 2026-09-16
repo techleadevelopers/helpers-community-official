@@ -373,6 +373,15 @@
   display: inline-block;
 }
 
+/* ============================================================
+   ANIMAÇÃO DE FLUTUAÇÃO DO BEIJA-FLOR (mobile)
+   Ele sobe/desce suavemente sem alterar o layout ao redor.
+   ============================================================ */
+@keyframes bird-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-6px) rotate(-3deg); }
+}
+
 .float-device { animation: float-device 6s ease-in-out infinite; }
 .pulse-dot { animation: pulse-dot 2.2s ease-in-out infinite; }
 .draw-line { stroke-dasharray: 500; animation: draw-line 2s ease-out .4s both; }
@@ -421,9 +430,10 @@
 
   /* ============================================================
      BEIJA-FLOR — MOBILE
-     1) Esconde o beija-flor que fica acima do mockup
-     2) Mostra o beija-flor inline, na mesma linha dos avatares
-     3) +15% no tamanho (34px -> 39px) sem empurrar o bloco ao lado
+     - Escondido o beija-flor que fica acima do mockup
+     - Mostrado inline na mesma linha dos avatares
+     - 20% MAIOR via transform: scale(1.2) — NÃO empurra nada
+     - Flutuando suavemente com a animação bird-float
      ============================================================ */
   .hero-above-phone-image {
     display: none !important;
@@ -431,20 +441,31 @@
 
   .hero-bird-inline {
     display: block !important;
-    width: 39px !important;
-    height: 39px !important;
-    object-fit: contain;
-    flex-shrink: 0;
-    /* posiciona visualmente sem interferir no fluxo do bloco ao lado */
+
+    /* tamanho base reservado no fluxo (não muda) */
+    width: 34px !important;
+    height: 34px !important;
+
+    /* 20% MAIOR sem empurrar ninguém */
+    transform: scale(1.2) translateZ(0);
+    transform-origin: center center;
+
+    /* garante que fique sobreposto, sem afetar layout */
     position: relative;
-    z-index: 2;
-    transform: translateZ(0);
-    margin-right: -6px;
-    margin-top: -8px;
-    margin-left: -2px;
+    z-index: 3;
+    flex-shrink: 0;
     pointer-events: none;
     user-select: none;
-    filter: drop-shadow(0 3px 6px rgba(63, 100, 76, 0.18));
+
+    /* sem margin — zero interferência */
+    margin: 0 !important;
+
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(63, 100, 76, 0.22));
+
+    /* flutuação contínua */
+    animation: bird-float 2.8s ease-in-out infinite;
+    will-change: transform;
   }
 
   /* ============================================================

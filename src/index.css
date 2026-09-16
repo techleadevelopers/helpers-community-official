@@ -418,8 +418,6 @@
     padding-bottom: 120px !important;
   }
 
-  /* === MARGEM SUPERIOR 20% MAIOR no rótulo "REDE DE PROTEÇÃO ANIMAL" (só mobile) ===
-     Antes: 14px  →  Agora: 17px  (14 × 1.2 = 16.8 ≈ 17px) */
   #inicio .eyebrow:first-of-type {
     margin-top: 17px !important;
   }
@@ -474,16 +472,22 @@
     height: 0.9rem !important;
   }
 
+  /* ============================================================
+     IMAGEM DO CANTO (HERO_CORNER_IMAGE) — MOBILE
+     40% maior: 116px × 1.4 = 162px
+     position: absolute → NÃO empurra nada
+     ============================================================ */
   .hero-corner-image {
-    display: block;
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    width: 116px;
-    height: auto;
-    z-index: 5;
-    pointer-events: none;
-    user-select: none;
+    display: block !important;
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    width: 162px !important;
+    max-width: none !important;
+    height: auto !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    user-select: none !important;
   }
 
   .hero-background {

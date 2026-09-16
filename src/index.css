@@ -177,9 +177,6 @@
     display: none;
   }
 
-  /* ============================================================
-     BEIJA-FLOR — DESKTOP (acima do mockup, só ≥ 768px)
-     ============================================================ */
   .hero-above-phone-image {
     display: block;
     width: 96px;
@@ -197,7 +194,6 @@
     }
   }
 
-  /* beija-flor inline: escondido por padrão (só aparece no mobile via @media abaixo) */
   .hero-bird-inline {
     display: none;
   }
@@ -371,7 +367,6 @@
   display: inline-block;
 }
 
-/* Animação de flutuação do beija-flor — só translate/rotate */
 @keyframes bird-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50%      { transform: translateY(-6px) rotate(-3deg); }
@@ -388,10 +383,6 @@
 .soft-shadow { box-shadow: var(--shadow-md); }
 .phone-shadow { box-shadow: 22px 28px 60px hsl(144 25% 25% / .16), 0 0 0 1px hsl(144 25% 25% / .08); }
 
-/* ============================================================
-   MOBILE — TUDO DO BEIJA-FLOR E DO RÓTULO VIVE AQUI DENTRO.
-   Nada disso sai pra outras larguras.
-   ============================================================ */
 @media (max-width: 767px) {
   .site-shell { width: min(100% - 32px, 620px); }
   .hide-mobile { display: none; }
@@ -427,17 +418,12 @@
     padding-bottom: 120px !important;
   }
 
-  /* === MARGEM SUPERIOR LEVE no rótulo "REDE DE PROTEÇÃO ANIMAL" (só mobile) === */
+  /* === MARGEM SUPERIOR 20% MAIOR no rótulo "REDE DE PROTEÇÃO ANIMAL" (só mobile) ===
+     Antes: 14px  →  Agora: 17px  (14 × 1.2 = 16.8 ≈ 17px) */
   #inicio .eyebrow:first-of-type {
-    margin-top: 14px !important;
+    margin-top: 17px !important;
   }
 
-  /* ============================================================
-     BEIJA-FLOR INLINE — só mobile
-     - 20% MAIOR de verdade: width/height 34px -> 41px
-     - margens negativas absorvem o crescimento → NÃO empurra nada
-     - flutua suavemente
-     ============================================================ */
   .hero-above-phone-image {
     display: none !important;
   }
@@ -450,7 +436,6 @@
     min-height: 41px !important;
     max-width: 41px !important;
     max-height: 41px !important;
-    /* absorve o crescimento (41-34)/2 ≈ 3.5px por lado */
     margin-top: -3px !important;
     margin-bottom: -3px !important;
     margin-left: -4px !important;
@@ -467,9 +452,6 @@
     transform-origin: center center;
   }
 
-  /* ============================================================
-     HERO CTA — empilhado (mobile)
-     ============================================================ */
   .hero-cta-row {
     display: flex !important;
     flex-direction: column !important;
@@ -556,7 +538,6 @@
     overflow-wrap: break-word !important;
   }
 
-  /* === FAN LAYOUT — 3 phones em leque (só mobile) === */
   .ong-phones-row.phones-fan {
     display: block !important;
     position: relative !important;
